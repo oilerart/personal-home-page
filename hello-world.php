@@ -168,3 +168,56 @@ echo "<br>"; */
 // ============================================
 // SECTION 5: STRINGS AND NUMBERS
 // ============================================
+
+/* Testing this exercise on w3schools, I have no f. idea what will be output:
+
+What will be the result of $z in the following code example:
+$x = 5;
+$y = 10;
+$z = $x . $y; */
+
+$x = 5;
+$y = 10;
+$z = $x . $y;
+
+echo $z; // 510. interesting...
+echo "<br><br>";
+
+// ============================================
+// STRING EXAMPLES
+// ============================================
+
+// Slicing with substr()
+$text = "Hello, world!";
+echo "Original: $text<br>";
+echo "substr(\$text, 5): " . substr($text, 5) . "<br>";  // ", world!"
+echo "substr(\$text, -5): " . substr($text, -5) . "<br>";  // "orld!"
+echo "substr(\$text, 7, 5): " . substr($text, 7, 5) . "<br><br>";  // "world"
+
+// Explode - split string into array
+$plugins = "MemberPress,Pretty Links,ThirstyAffiliates";
+$list = explode(",", $plugins);
+echo "Explode result and show the best plugins with the best support in WP:<br>";
+print_r($list);
+echo "<br><br>";
+
+// Escape characters
+echo "Quotes: \"Vikings\" from the north<br>";
+echo "Path: C:\\Users\\Files<br>";
+echo "Newline next:\nSee?<br>";
+echo "<pre>Newline next:\nSee?</pre><br>";
+echo "<pre>Tab:\there<br></pre><br>";
+
+// nl2br() - converts \n to <br> for HTML
+$multiline = "Line 1\nLine 2\nLine 3";
+echo "Without nl2br(): $multiline<br>";
+echo "With nl2br(): " . nl2br($multiline) . "<br><br>";
+
+// Common string functions
+$sample = "  Pretty Links  ";
+echo "Original: '$sample'<br>";
+echo "trim(): '" . trim($sample) . "'<br>";
+echo "strlen(): " . strlen($sample) . "<br>";
+echo "strtoupper(): " . strtoupper($sample) . "<br>";
+echo "str_replace(): " . str_replace("Links", "URLs", $sample) . "<br>";
+
