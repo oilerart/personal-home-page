@@ -166,7 +166,7 @@ var_dump((int) 12e12);
 echo "<br>"; */
 
 // ============================================
-// SECTION 5: STRINGS AND NUMBERS
+// SECTION 5: STRINGS
 // ============================================
 
 /* Testing this exercise on w3schools, I have no f. idea what will be output:
@@ -176,7 +176,7 @@ $x = 5;
 $y = 10;
 $z = $x . $y; */
 
-$x = 5;
+/* $x = 5;
 $y = 10;
 $z = $x . $y;
 
@@ -220,4 +220,65 @@ echo "trim(): '" . trim($sample) . "'<br>";
 echo "strlen(): " . strlen($sample) . "<br>";
 echo "strtoupper(): " . strtoupper($sample) . "<br>";
 echo "str_replace(): " . str_replace("Links", "URLs", $sample) . "<br>";
+*/
 
+// ============================================
+// SECTION 6: NUMBERS
+// ============================================
+
+// Integers vs Floats
+/* $int = 42;
+$float = 3.14;
+var_dump($int);    // int(42)
+echo "<br>";
+var_dump($float);  // float(3.14)
+echo "<br><br>";
+
+// Float operand rule - result becomes float if ANY operand is float
+var_dump(4 * 2.5);  // float(10) - not int!
+echo "<br>";
+var_dump(4 * 2);    // int(8)
+echo "<br><br>";
+
+// Type checking functions
+$x = 5985;
+var_dump(is_int($x));       // bool(true)
+echo "<br>";
+var_dump(is_float($x));     // bool(false)
+echo "<br>";
+var_dump(is_numeric($x));   // bool(true)
+echo "<br><br>";
+
+// Number strings
+$num_string = "123";
+var_dump(is_numeric($num_string));  // bool(true)
+echo "<br>";
+$result = $num_string + 100;
+var_dump($result);  // int(223) - PHP auto-converts!
+echo "<br><br>";
+
+// Integer limits - exceeding converts to float
+$max_int = 9223372036854775807;  // PHP_INT_MAX
+var_dump($max_int);              // int
+echo "<br>";
+$exceed = 9223372036854775808;   // One more
+var_dump($exceed);               // float! (too big for int)
+echo "<br><br>";
+
+// Infinity - numbers too big
+$inf = 1.9e411;
+var_dump($inf);           // float(INF)
+echo "<br>";
+var_dump(is_infinite($inf));  // bool(true)
+echo "<br><br>";
+
+// NaN - invalid math operations
+$nan = acos(8);  // Invalid: acos only works for -1 to 1
+var_dump($nan);  // float(NAN)
+echo "<br>";
+var_dump(is_nan($nan));  // bool(true)
+echo "<br>"; */
+
+// ============================================
+// SECTION 7: casting
+// ============================================
