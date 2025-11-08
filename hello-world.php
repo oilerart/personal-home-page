@@ -280,5 +280,69 @@ var_dump(is_nan($nan));  // bool(true)
 echo "<br>"; */
 
 // ============================================
-// SECTION 7: casting
+// SECTION 7: CASTING
 // ============================================
+
+// Cast to string
+$a = 5;
+$b = 5.34;
+$c = true;
+var_dump((string) $a);  // "5"
+echo "<br>";
+var_dump((string) $b);  // "5.34"
+echo "<br>";
+var_dump((string) $c);  // "1"
+echo "<br><br>";
+
+// Cast to int - PHP tries to extract numbers
+var_dump((int) "25 plugins");  // 25 (starts with number)
+echo "<br>";
+var_dump((int) "plugins 25");  // 0 (starts with text)
+echo "<br>";
+var_dump((int) true);          // 1
+echo "<br>";
+var_dump((int) NULL);          // 0
+echo "<br><br>";
+
+// Cast to float
+var_dump((float) "25.9 hours");  // 25.9
+echo "<br>";
+var_dump((float) "42");         // 42.0
+echo "<br><br>";
+
+// Cast to bool - 0, "", false, NULL = false, everything else = true
+var_dump((bool) 0);      // false
+echo "<br>";
+var_dump((bool) "");     // false
+echo "<br>";
+var_dump((bool) -1);     // true (even negative!)
+echo "<br>";
+var_dump((bool) "hello"); // true
+echo "<br><br>";
+
+// Cast to array
+$x = 42;
+$arr = (array) $x;
+var_dump($arr);  // [0 => 42]
+echo "<br><br>";
+
+// Cast array to object
+$tools = ["MemberPress", "Pretty Links", "ThirstyAffiliates"];
+$obj = (object) $tools;
+var_dump($obj);
+echo "<br><br>";
+
+// What if we try to cast other data types to object?
+$obj_test = 42;
+$newobjtest = (object) $obj_test;
+var_dump($newobjtest);
+echo "<br><br>";
+
+// Cast associative array to object
+$assoc = ["name" => "MemberPress", "active" => true];
+$obj2 = (object) $assoc;
+var_dump($obj2);
+echo "<br><br>";
+
+// Note: (unset) cast was removed in PHP 7.2+
+// To set to NULL, just assign: $x = null;
