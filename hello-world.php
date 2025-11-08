@@ -284,7 +284,7 @@ echo "<br>"; */
 // ============================================
 
 // Cast to string
-$a = 5;
+/* $a = 5;
 $b = 5.34;
 $c = true;
 var_dump((string) $a);  // "5"
@@ -345,4 +345,37 @@ var_dump($obj2);
 echo "<br><br>";
 
 // Note: (unset) cast was removed in PHP 7.2+
-// To set to NULL, just assign: $x = null;
+// To set to NULL, just assign: $x = null; */
+
+
+// ============================================
+// SECTION 8: MATH
+// ============================================
+
+/* // pi() - mathematical constant
+echo "pi(): " . pi() . "<br><br>";
+echo (pi());
+echo "<br><br>";
+
+// min() and max() - find smallest/largest
+echo "min(0, 150, 30, 20, -8, -200): " . min(0, 150, 30, 20, -8, -200) . "<br>";
+echo "max(0, 150, 30, 20, -8, -200): " . max(0, 150, 30, 20, -8, -200) . "<br><br>";
+
+// abs() - absolute value (removes negative sign)
+echo "abs(-6.7): " . abs(-6.7) . "<br>";
+echo "abs(42): " . abs(42) . "<br><br>";
+
+// sqrt() - square root
+echo "sqrt(64): " . sqrt(64) . "<br>";
+echo "sqrt(25): " . sqrt(25) . "<br><br>";
+
+// round() - rounds to nearest integer
+echo "round(0.60): " . round(0.60) . "<br>";
+echo "round(0.49): " . round(0.49) . "<br>";
+echo "round(3.7): " . round(3.7) . "<br><br>";
+
+// rand() - random number generation
+echo "rand(): " . rand() . "<br>";
+echo "rand(10, 100): " . rand(10, 100) . "<br>"; */
+
+
