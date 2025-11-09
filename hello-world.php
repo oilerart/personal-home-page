@@ -497,3 +497,38 @@ echo "Username: $username<br>";
 */
 
 
+// Exercise 1: done
+// Exercise 2: debug a support ticket
+
+/* $membership_price = "99.99";
+$discount = 10;
+$final_price = $membership_price - $discount;
+echo "Final price: " . $final_price; */
+
+// Ok, even though it has set the first variable as a string while it should be a number, PHP automatically detects it in the $final_price operation and convert the result to a number. We'd probably need to fix $membership_price but I don't see big issues here... Am I wrong?
+
+/* Exercise 3: Write a helper function
+Create a function that:
+Takes a membership level name (string)
+Checks if it's empty
+Returns "No level" if empty, otherwise returns "Level: [name]"
+Uses a ternary operator */
+
+/* function myfirstfunctionfromscratch($level) {
+return empty($level)? "No level" : "Level: $level";
+
+}
+
+ echo myfirstfunctionfromscratch("Premium");
+echo "<br>";
+echo myfirstfunctionfromscratch("");
+
+# OR:
+
+$message1 = myfirstfunctionfromscratch("Premium");
+echo $message1;
+
+echo "<br>";
+
+$message2 = myfirstfunctionfromscratch('');
+echo $message2; */
