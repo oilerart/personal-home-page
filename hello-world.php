@@ -379,3 +379,121 @@ echo "rand(): " . rand() . "<br>";
 echo "rand(10, 100): " . rand(10, 100) . "<br>"; */
 
 
+// ============================================
+// SECTION 9: CONSTANTS
+// ============================================
+
+// Using define() - can be used anywhere
+/* define("PLUGIN_NAME", "Pretty Links");
+echo PLUGIN_NAME . "<br>";
+
+// Using const - must be top-level
+const COMPANY = "CaseProof";
+echo COMPANY . "<br><br>";
+
+// Constant arrays (PHP 7+)
+define("PRODUCTS", [
+  "MemberPress",
+  "Pretty Links",
+  "ThirstyAffiliates"
+]);
+echo PRODUCTS[0] . "<br><br>";
+
+// Constants are global - accessible in functions
+define("SUPPORT_EMAIL", "support@caseproof.com");
+function getSupportContact() {
+  echo SUPPORT_EMAIL;
+}
+getSupportContact();
+echo "<br><br>";
+
+// Built-in PHP constants
+echo "PHP_VERSION: " . PHP_VERSION . "<br>";
+echo "PHP_INT_MAX: " . PHP_INT_MAX . "<br><br>";
+
+// ============================================
+// MAGIC CONSTANTS
+// ============================================
+
+// __LINE__ - current line number
+echo "Current line: " . __LINE__ . "<br>";
+
+// __FILE__ - full path and filename
+echo "File: " . __FILE__ . "<br>";
+
+// __DIR__ - directory of current file
+echo "Directory: " . __DIR__ . "<br><br>";
+
+// __FUNCTION__ - function name
+function myFunction() {
+  echo "Function: " . __FUNCTION__ . "<br>";
+}
+myFunction();
+
+// __CLASS__ and __METHOD__ - class context
+class MemberPressTools {
+  public function versionCheck() {
+    echo "Class: " . __CLASS__ . "<br>";
+    echo "Method: " . __METHOD__ . "<br>";
+  }
+}
+
+$tools = new MemberPressTools();
+$tools->versionCheck();
+echo "<br>";
+
+// ClassName::class - full class name
+echo "Full class name: " .MemberPressTools::class. "<br>";
+
+*/
+
+// ============================================
+// SECTION 10: OPERATORS
+// ============================================
+
+// Arithmetic: +, -, /, %, **
+/* echo "2 + 3 = " . (2 + 3) . "<br>";
+echo "2 ** 3 = " . (2 ** 3) . "<br><br>";
+
+// Assignment: +=, -=, *=
+$total = 100;
+$total += 20;  // $total = $total + 20
+echo "Initial value \$total = 100. After \$total += 20: $total<br><br>";
+
+// Comparison: ==, ===, <, >=, <=>
+var_dump(10 === 10);  // true
+echo "<br>";
+echo "Spaceship (10 <=> 15): " . (10 <=> 15) . "<br><br>";  // -1
+
+// Increment/Decrement: ++, --
+$counter = 5;
+echo "Pre-increment: " . (++$counter) . "<br>";  // 6
+echo "Post-increment: " . ($counter++) . "<br><br>";  // 6, then becomes 7
+
+// Logical: &&, ||, !
+var_dump(true && false);  // false
+echo "<br>";
+var_dump(true || false);  // true
+echo "<br><br>";
+
+// String: ., .=
+$name = "MemberPress";
+$message = "Welcome to " . $name;
+$message .= " support!";
+echo $message . "<br><br>";
+
+// Array: + (union)
+$a = ["plugin" => "Pretty Links"];
+$b = ["version" => "4.0.0"];
+var_dump($a + $b);
+echo "<br><br>";
+
+// Conditional: ternary (?:), null coalescing (??)
+$plan = "Pro";
+$msg = ($plan === "Pro") ? "Pro user!" : "Upgrade";
+echo $msg . "<br>";
+$username = $_GET['user'] ?? 'Guest';
+echo "Username: $username<br>";
+*/
+
+
