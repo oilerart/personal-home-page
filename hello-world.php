@@ -532,3 +532,55 @@ echo "<br>";
 
 $message2 = myfirstfunctionfromscratch('');
 echo $message2; */
+
+// ============================================
+// SECTION 11: CONDITIONALS (if/else/elseif)
+// ============================================
+
+// Simple if statement
+$is_active = true;
+if ($is_active) {
+  echo "User has an active subscription.<br>";
+}
+
+// if...else
+$clicks = 75;
+if ($clicks > 50) {
+  echo "URL performing well!<br>";
+} else {
+  echo "Needs more promotion.<br>";
+}
+
+// if...elseif...else
+$status = 'paused';
+if ($status == 'active') {
+  echo "User can access content.<br>";
+} elseif ($status == 'paused') {
+  echo "User needs to renew soon.<br>";
+} else {
+  echo "User has no access.<br>";
+}
+
+// Logical operators (&&, ||)
+$user_role = 'admin';
+$has_license = true;
+if ($user_role == 'admin' && $has_license) {
+  echo "Access granted.<br>";
+}
+
+// Ternary operator (shorthand)
+$clicks = 100;
+$msg = ($clicks > 50) ? "Nice traffic!" : "Needs promotion.";
+echo $msg . "<br>";
+
+// Nested ifs
+$member = true;
+if ($member) {
+  echo "User found.";
+  $is_active = true;
+  if ($is_active) {
+    echo " Subscription is active.<br>";
+  } else {
+    echo " Subscription is inactive.<br>";
+  }
+}
