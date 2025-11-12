@@ -538,7 +538,7 @@ echo $message2; */
 // ============================================
 
 // Simple if statement
-$is_active = true;
+/* $is_active = true;
 if ($is_active) {
   echo "User has an active subscription.<br>";
 }
@@ -584,3 +584,111 @@ if ($member) {
     echo " Subscription is inactive.<br>";
   }
 }
+*/
+
+
+// ============================================
+// SECTION 12: SWITCH
+// ============================================
+
+/* Syntax
+switch (expression) {
+  case label1:
+    //code block
+    break;
+  case label2:
+    //code block;
+    break;
+  case label3:
+    //code block
+    break;
+  default:
+    //code block
+} */
+
+# Example 1: Create a variable that holds the current hour. Use it as the expression for the switch parameter, then add three possible cases: 'good morning', 'good afternoon' or 'good night'
+
+# echo date_default_timezone_get(); - outputs the server timezone
+date_default_timezone_set('America/Sao_Paulo'); # let's first set the timezone to be the same as mine
+$hours = date('H'); # it holds current hour (00-24 format)
+# echo $current_hours;
+
+/* switch ($hours) { // but you could (perhaps should) use switch (true), since we are always comparing boolean values here
+  
+  case ($hours >= 0 and  $hours < 5):
+    echo "Boa madruga fi";
+    break;
+
+  case ($hours >= 5 and $hours < 12):
+    echo "Bom dia fi!";
+    break;
+
+  case ($hours >= 12 and $hours < 18):
+    echo "Boa tarde meu fi";
+    break;
+
+  case ($hours >= 18 and $hours < 24):
+    echo "Boa noite zé";
+    break;
+
+  # default is optional, we don't need to set it if we don't... need it, at all [?]
+} */
+
+// Example 2 - More than one case for each code block:
+
+/*$d = -6;
+
+# but let's convert it to 6 and display case 6
+$d = abs($d);
+
+switch ($d) {
+  case 1:
+  case 2:
+  case 3:
+  case 4:
+  case 5:  
+    echo "The weeks feels so long!";
+    break;
+  case 6:
+  case 0:
+    echo "Weekends are the best!";
+    break;
+  default:
+    echo "Something is wrong and weird here";
+} */
+
+
+// Example 3: switch($variable) — when you want to match fixed values
+/* $status = 'draft';
+
+ switch ($status) {
+  case 'draft':
+    echo "This post is still being written.";
+    break;
+  case 'pending':
+    echo "Waiting for review.";
+    break;
+  case 'published':
+    echo "The post is live!";
+    break;
+  default:
+    echo "Unknown post status.";
+} */
+
+// Example 4: switch(true) — when you want to evaluate conditions
+
+/*
+switch (true) {
+  case is_admin():
+    echo "You’re in the dashboard!";
+    break;
+  case is_page('pricing'):
+    echo "Welcome to the pricing page.";
+    break;
+  case is_user_logged_in():
+    echo "Hi there, member!";
+    break;
+  default:
+    echo "Hello, visitor!";
+} */
+
