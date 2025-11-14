@@ -609,8 +609,8 @@ switch (expression) {
 # Example 1: Create a variable that holds the current hour. Use it as the expression for the switch parameter, then add three possible cases: 'good morning', 'good afternoon' or 'good night'
 
 # echo date_default_timezone_get(); - outputs the server timezone
-date_default_timezone_set('America/Sao_Paulo'); # let's first set the timezone to be the same as mine
-$hours = date('H'); # it holds current hour (00-24 format)
+/* date_default_timezone_set('America/Sao_Paulo'); # let's first set the timezone to be the same as mine
+$hours = date('H'); # it holds current hour (00-24 format) */
 # echo $current_hours;
 
 /* switch ($hours) { // but you could (perhaps should) use switch (true), since we are always comparing boolean values here
@@ -691,4 +691,8 @@ switch (true) {
   default:
     echo "Hello, visitor!";
 } */
+
+// ============================================
+// SECTION 13: STAY IN THE LOOP MF!!!!!!!!!!!!!
+// ============================================
 
