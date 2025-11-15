@@ -696,3 +696,35 @@ switch (true) {
 // SECTION 13: STAY IN THE LOOP MF!!!!!!!!!!!!!
 // ============================================
 
+// Exercise 1 — Count from 1 to 5. Print the numbers 1 through 5, one per line. This is the most classic while-loop pattern: initialize → check condition → increment.
+
+
+/* $x = 1;
+
+while ($x < 6) {
+
+  echo $x;
+  $x++;
+  
+} */
+
+// Exercise 2 — Count down from 10 to 1. Start at 10 and count backwards to 1.
+
+/* $x = 10;
+
+while ($x > 0) {
+
+  echo $x;
+  $x--;
+} */
+
+
+
+// Exercise 3 — Skip a specific number. Count from 1 to 10, but skip the number 4 using continue.
+
+/* $i = 0;
+while ($i < 6) {
+  $i++;
+  if ($i == 3) continue;  
+  echo $i;
+} */
