@@ -819,3 +819,26 @@ do {
   }
   $e++;
 } while ($e <= 7); */
+
+// SMALL BREAK FOR print_r x var_dump section
+
+/* $data = array(
+    'name' => 'John Doe',
+    'age' => 30,
+    'hobbies' => array('reading', 'hiking', 'coding')
+);
+
+echo "<h1>var_dump()</h1>";
+echo "<pre>"; // Optional: for better formatting in a browser
+var_dump($data);
+echo "</pre>";
+
+
+echo "<h1>print_r()</h1>";
+echo "<pre>"; // Optional: for better formatting in a browser
+print_r($data);
+echo "</pre>";
+
+$output_string = print_r($data, true);
+echo "The output as a string: " . $output_string;
+?> */
