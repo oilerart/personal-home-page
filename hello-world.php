@@ -696,6 +696,8 @@ switch (true) {
 // SECTION 13: STAY IN THE LOOP MF!!!!!!!!!!!!!
 // ============================================
 
+# 13.1 WHILE
+
 // Exercise 1 — Count from 1 to 5. Print the numbers 1 through 5, one per line. This is the most classic while-loop pattern: initialize → check condition → increment.
 
 
@@ -728,3 +730,52 @@ while ($i < 6) {
   if ($i == 3) continue;  
   echo $i;
 } */
+
+// Exercise 4 and 5 - also practice break; and endwhile;
+
+// which is the best number? Break on before it
+
+/* $e = 0;
+
+while ($e <= 12) {
+  if ($e == 12) {
+    echo $e;
+    echo "<< ¡that's the BEST NUMBER EVER!. 13 sucks";    
+    break;
+  }
+  echo $e;
+  $e++;
+}
+
+*/
+
+// try to use endwhile somehow....
+
+/*$l = 10;
+while ($l <= 100) : echo $l; $l+=10;
+
+  endwhile; */
+
+  # Exercise A — Fix the infinite loop. This code is broken. Fix it:
+  
+  /*  $a = 1;
+
+    while ($a < 20) {
+      if ($a == 10) : $a++; continue; endif;
+      echo $a;
+      $a++;
+    } */
+
+
+
+  # Exercise B — Use endwhile to loop backwards. Count from 50 down to 5, stepping by 5, using: while, endwhile and no for
+
+/*    $uai = 50;
+    while ($uai >= 5) :
+      echo $uai;
+      $uai = $uai - 5;
+
+    endwhile;
+*/
+
+  # 13.2 DO... WHILE
