@@ -779,3 +779,43 @@ while ($l <= 100) : echo $l; $l+=10;
 */
 
   # 13.2 DO... WHILE
+
+
+  # Exercise 1 — Count up at least once. Write a do…while loop that: starts $x at 10, prints $x, increments $x and stops when $x is greater than 12. Even though the condition fails after a few steps, the code must run at least once.
+
+  /*  $e = 10;
+
+    do {
+      echo $e;
+      $e++;
+    }
+    while ($e <= 12); */
+
+
+
+  # Exercise 2 — Retry until success. Simulate a "retry an API call" loop: Create $success = false, inside the loop, randomly set $success to true (hint: rand(1, 5) == 3). Print “Trying…”. Stop once $success becomes true. It MUST run once even if it succeeds immediately.
+
+/*    $success = false;
+
+    do {
+      print "Trying...";
+      $number = rand(0, 12);
+      if ($number == 12) {
+        $success = true;
+      }
+    }
+    while ($success == false); */
+
+
+# Exercise 3 — Skip a specific number. Use continue inside a do…while: Count from 1 to 7, but skip printing number 4. Still continue the loop normally. MUST increment before continue.
+
+/* $e = 0;
+do {
+  echo $e;
+  if ($e == 4) {
+    $e++;
+    continue;
+    
+  }
+  $e++;
+} while ($e <= 7); */
