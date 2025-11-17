@@ -842,3 +842,47 @@ echo "</pre>";
 $output_string = print_r($data, true);
 echo "The output as a string: " . $output_string;
 ?> */
+
+  # 13.3 FOR
+
+  # Exercise 1 — Count Only Even Numbers. Print all even numbers between 2 and 20 using a for loop. Requirements: Use a for, only print even numbers and no if allowed inside the loop
+
+
+ /* for ($e = 2; $e <= 20; $e+=2) {
+    echo "$e <br>";
+  } */
+
+  # Exercise 2 — Stop at the First “Forbidden” Number. Simulate scanning link IDs from 1 to 15, but stop completely if you hit ID 9.
+  
+  /* Output example idea:
+  Checking ID: 1
+  Checking ID: 2
+  ...
+  Checking ID: 9 ← loop stops here
+  
+  Requirements:
+  
+  Use for
+  
+  Use break
+  
+  Print each step */
+
+  /* for ($e = 1; $e <= 15; $e++) {
+
+    if ($e > 9) {
+      break;
+    }
+    echo "Checking ID: $e <br>";
+    
+  } */
+
+  # Exercise 3 — Skip One, Process the Rest. Loop from 1 to 12, but skip number 7 and do NOT print it. Everything else should print normally.
+
+  /* for ($e = 1; $e <= 12; $e++) {
+
+    if ($e == 7) {
+      continue;
+    }
+    print $e;
+  } */
