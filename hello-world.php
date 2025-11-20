@@ -886,3 +886,58 @@ echo "The output as a string: " . $output_string;
     }
     print $e;
   } */
+
+  # 13.4 FOR EACH
+
+  // Exercise 1 — Sum Values of an Array. Given an array of numbers, loop through it with foreach and echo the total sum. Array: $nums = [10, 20, 5, 3, 2];
+
+  /* $nums = [10, 20, 5, 3, 2];
+  $e = 0;
+
+  foreach ($nums as $x) {
+    
+    $e++;
+  }
+
+  echo $e; */
+
+ // Exercise 2 — Skip One Value. Loop through: $colors = ["red", "green", "blue", "yellow"]; But do not print “blue”. Use continue.
+
+ /* $colors = ["red", "green", "blue", "yellow"];
+
+ foreach ($colors as $x) {
+  if ($x == 'blue') {
+    continue;
+  }
+  echo "$x <br>";
+ } */
+
+// Exercise 3 — Change One Value By Reference. Given: $statuses = ["active", "expired", "trial", "active"]; Change “trial” to “pending” using foreach by reference, then print the modified array.
+
+
+/* $statuses = ["active", "expired", "trial", "active"];
+
+
+
+
+// without byref
+foreach ($statuses as $x) {
+  if ($x == "trial") {
+    $x = 'pending';
+  }
+}
+
+
+var_dump($statuses);
+
+echo "<br>";
+
+// byref
+foreach ($statuses as &$x) {
+  if ($x == "trial") {
+    $x = 'pending';
+  }
+}
+
+var_dump($statuses);
+# unset($x); - use unset() to break the reference from the previous byref foreach */
