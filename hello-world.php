@@ -941,3 +941,97 @@ foreach ($statuses as &$x) {
 
 var_dump($statuses);
 # unset($x); - use unset() to break the reference from the previous byref foreach */
+
+/* Exercise 1 — Find the First Active Membership
+
+You have:
+
+$memberships = [
+  ['id' => 1, 'status' => 'expired'],
+  ['id' => 2, 'status' => 'pending'],
+  ['id' => 3, 'status' => 'active'],
+  ['id' => 4, 'status' => 'active'],
+];
+
+
+Task:
+Loop through and print only the ID of the first active membership, then stop immediately using break.
+
+(If you’re doing it right, you should never even touch ID 4.) */
+
+/* $memberships = [
+  ['id' => 1, 'status' => 'expired'],
+  ['id' => 2, 'status' => 'pending'],
+  ['id' => 3, 'status' => 'active'],
+  ['id' => 4, 'status' => 'active'],
+];
+
+
+foreach ($memberships as $item) {
+  
+  echo "Membership ID: {$item['id']}, Membership Status: {$item['status']} <br>";
+  if ($item['status'] == 'active') {
+    break;
+  }
+} */
+
+
+
+/* curiosity: the following won't work because PHP doesn't know how to echo an array directly
+
+foreach ($memberships as $x => $y) {
+  echo "$x : $y";
+} 
+
+
+another example:
+$test_array = array('1', '2', '3', '4');
+echo $test_array;
+
+
+
+To make this work:
+
+// Option 1: Use print_r() inside the loop (quick debugging style)
+/*foreach ($memberships as $x => $y) {
+  echo "$x : ";
+  print_r($y);
+  echo "<br>";
+}*/
+
+// Option 2: Echo individual values (cleaner for real output)
+
+/* foreach ($memberships as $item) {
+   echo "ID: {$item['id']} - Status {$item['status']} <br>";
+}
+*/
+
+
+/* Exercise 2 — Skip Non-Pretty Links
+
+Given:
+
+$links = ["google.com", "/go/course", "https://github.com", "/go/deals"];
+
+
+Think of /go/... as Pretty Links.
+
+Task:
+Loop through the array and print only the Pretty Links.
+Use continue to skip anything that does not start with /go/. */
+ 
+/* $links = ["google.com", "/go/course", "https://github.com", "/go/deals"];
+
+foreach ($links as $e) {
+  if (substr($e, 0, 4) != '/go/') {
+    continue;
+  }  */
+  /*or
+  if (substr($e, 0, 4) != '/go/') {
+    continue;
+  }
+  }
+  echo $e;
+} */
+
+
