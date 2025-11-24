@@ -1049,12 +1049,32 @@ Hello, Euler!
 
 Try to write it now (and feel free to add your Canadian accent version if you want — “Hello, Euler, eh?”). */
 
-function sayHelloTo ($name) {
+/* function sayHelloTo ($name) {
   $e = "Hello $name, eh?";
   return $e;
 }
 
-echo sayHelloTo("Euler");
+echo sayHelloTo("Euler"); */
+
+# Exercise 2 - default parameter values
+
+/* 
+
+Write a function called calcDiscount() that:
+
+accepts one parameter: $amount
+accepts one optional parameter: $rate (default 0.10 → 10% discount)
+returns the discounted price
+
+*/
+
+function calcDiscount ($amount, $rate = 0.10) {
+  $discountedPrice = $amount - ($amount * $rate);
+  return $discountedPrice;
+}
+
+echo calcDiscount(100) . "<br>";
+echo calcDiscount(100, 0.6);
 
 
 # FINAL substantial exercise
