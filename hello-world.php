@@ -1094,15 +1094,33 @@ With "5" → should throw a TypeError because of strict types (that’s the poin
 
 */
 
-function square(int $x) : int {
+/* function square(int $x) : int {
   $e = $x ** 2;
   return $e;
 }
 
 echo square(4);
-echo square("5");
+echo square("5"); */
 
+# Exercise 4 - pass-by-reference (&)
 
+/*
+
+Make a function called applyCoupon(). It receives a price by reference. It subtracts 20 from it. It returns nothing (just modifies the original)
+
+Then echo the price outside to confirm the change
+
+*/
+
+function applyCoupon (&$price) {
+  $price = $price - 20;
+  return;
+}
+
+$price = 32;
+applyCoupon ($price);
+
+echo $price;
 
 
 # FINAL substantial exercise
