@@ -1068,13 +1068,41 @@ returns the discounted price
 
 */
 
-function calcDiscount ($amount, $rate = 0.10) {
+/* function calcDiscount ($amount, $rate = 0.10) {
   $discountedPrice = $amount - ($amount * $rate);
   return $discountedPrice;
 }
 
 echo calcDiscount(100) . "<br>";
-echo calcDiscount(100, 0.6);
+echo calcDiscount(100, 0.6); */
+
+# Exercise 3 - parameter type hints
+
+/* 
+
+Create a function where:
+
+name: square
+accepts one integer
+returns an integer (use : int after the function)
+just returns the number squared
+
+Then call it twice:
+
+With 4 → should print 16
+With "5" → should throw a TypeError because of strict types (that’s the point)
+
+*/
+
+function square(int $x) : int {
+  $e = $x ** 2;
+  return $e;
+}
+
+echo square(4);
+echo square("5");
+
+
 
 
 # FINAL substantial exercise
