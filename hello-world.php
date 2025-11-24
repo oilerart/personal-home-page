@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1); // strict requirement
 
 // ============================================
 // SECTION 1: COMMENTS
@@ -1035,3 +1036,42 @@ foreach ($links as $e) {
 } */
 
 
+// ============================================
+// SECTION 14: FUNCTIONS
+// ============================================
+
+# Exercise 1 - first ultra-simple exercise:
+/* Create a function called sayHello() that returns the string "Hello, Euler!"
+—not echo, RETURNS.
+Then call the function and echo the result.
+So your final output on the page should show:
+Hello, Euler!
+
+Try to write it now (and feel free to add your Canadian accent version if you want — “Hello, Euler, eh?”). */
+
+function sayHelloTo ($name) {
+  $e = "Hello $name, eh?";
+  return $e;
+}
+
+echo sayHelloTo("Euler");
+
+
+# FINAL substantial exercise
+
+/* “Create a function called processMembers(). It receives:
+
+a minimum year (default 2020)
+a flag (default false)
+and any number of member arrays
+
+Each member is like:
+['name' => 'Euler', 'status' => 'active', 'joined' => 2022].
+
+The function should return only the active members who joined on or after the minimum year.
+If the flag is true, then it also adds ['eligible' => true] to each matched member — and this should modify the original arrays, so use pass-by-reference just for the members, not for the other params.
+Use strict_types. */
+
+/* function processMembers($minimumyear, $flag, ...$members) {
+  
+} */
