@@ -1166,7 +1166,7 @@ returns the total
 
 */
 
-function addAll(...$nums) {
+/* function addAll(...$nums) {
 
   $e = 0;
   
@@ -1180,6 +1180,35 @@ function addAll(...$nums) {
 echo addAll(1, 2, 3);
 echo "<br>";
 echo addAll(12, 100, 8);
+*/
+
+# Exercise 7 - mixed parameters + variadic
+
+
+/*
+
+Create a function called greetGroup() that takes:
+
+a normal first argument: $greeting (like "Hello" or "Hey"),
+then a variadic list: ...$names
+
+Inside the function, build and return one single string that includes the greeting for each name.
+
+*/
+
+function greetGroup($greeting, ...$names) {
+
+  $single_message = '';
+
+  foreach ($names as $x) {
+    $single_message = "$single_message $greeting, $x! ";
+  }
+
+  return $single_message;
+}
+
+echo greetGroup("Hello", "Euler", "Letícia", "Luma");
+
 
 # FINAL substantial exercise
 
