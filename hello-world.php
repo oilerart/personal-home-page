@@ -1196,7 +1196,7 @@ Inside the function, build and return one single string that includes the greeti
 
 */
 
-function greetGroup($greeting, ...$names) {
+/* function greetGroup($greeting, ...$names) {
 
   $single_message = '';
 
@@ -1207,24 +1207,59 @@ function greetGroup($greeting, ...$names) {
   return $single_message;
 }
 
-echo greetGroup("Hello", "Euler", "Letícia", "Luma");
+echo greetGroup("Hello", "Euler", "Letícia", "Luma"); */
 
 
-# FINAL substantial exercise
+# Exercise 8 - FINAL substantial exercise
 
-/* “Create a function called processMembers(). It receives:
+/* 
 
-a minimum year (default 2020)
-a flag (default false)
-and any number of member arrays
+Create processMembers() with strict_types.
 
-Each member is like:
-['name' => 'Euler', 'status' => 'active', 'joined' => 2022].
+Parameters:
+- int $minYear (default 2020)
+- bool $addEligibleFlag (default false)  
+- array &...$members (variadic, by reference)
 
-The function should return only the active members who joined on or after the minimum year.
-If the flag is true, then it also adds ['eligible' => true] to each matched member — and this should modify the original arrays, so use pass-by-reference just for the members, not for the other params.
-Use strict_types. */
+Return: array
 
-/* function processMembers($minimumyear, $flag, ...$members) {
-  
-} */
+Filter members where status = 'active' AND joined >= $minYear.
+If $addEligibleFlag is true, add 'eligible' => true to matched members (modifies originals).
+Return array of filtered members.
+
+Test data:
+$member1 = ['name' => 'Alice', 'status' => 'active', 'joined' => 2021];
+$member2 = ['name' => 'Bob', 'status' => 'inactive', 'joined' => 2022];
+$member3 = ['name' => 'Carol', 'status' => 'active', 'joined' => 2019];
+$member4 = ['name' => 'Dave', 'status' => 'active', 'joined' => 2023];
+
+
+*/
+
+$m1 = ['name' => 'Alice', 'status' => 'active', 'joined' => 2021];
+$m2 = ['name' => 'Bob', 'status' => 'inactive', 'joined' => 2022];
+$m3 = ['name' => 'Carol', 'status' => 'active', 'joined' => 2019];
+$m4 = ['name' => 'Dave', 'status' => 'active', 'joined' => 2023];
+
+function processMembers(int $minYear = 2020, bool $addEligibleFlag = false, &...$members) : array {
+
+  $results = [];
+
+  foreach ($members as &$member) {
+    if ($member['status'] == 'active' && $member['joined'] >= $minYear) {
+      if ($addEligibleFlag === true) {
+
+        $member['eligible'] = true;        
+
+      }
+    $results[] = $member;
+    }
+  }
+
+  return $results;
+
+}
+
+$test = processMembers(2020, false, $m1, $m2, $m3, $m4);
+
+print_r($test);
