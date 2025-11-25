@@ -1112,15 +1112,45 @@ Then echo the price outside to confirm the change
 
 */
 
-function applyCoupon (&$price) {
+/* function applyCoupon (&$price) {
   $price = $price - 20;
   return;
-}
+} 
+
 
 $price = 32;
 applyCoupon ($price);
 
 echo $price;
+*/
+
+# Exercise 5 - strict types + multiple arguments + a clean return type
+
+/*
+
+Create a function called calcTotal() that:
+
+expects two floats (price and tax)
+returns a float
+strict_types must be turned on
+inside, calculate: total = price + (price * tax)
+return that total
+
+Call the function twice and echo the results
+
+*/
+
+
+function calcTotal(float $price, float $tax) : float {
+
+  $total = $price + ($price * $tax);
+  return $total;
+
+}
+
+echo calcTotal(10, 0.10);
+echo "<br>";
+echo calcTotal(120.12, 0.3);
 
 
 # FINAL substantial exercise
