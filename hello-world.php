@@ -1141,7 +1141,7 @@ Call the function twice and echo the results
 */
 
 
-function calcTotal(float $price, float $tax) : float {
+/* function calcTotal(float $price, float $tax) : float {
 
   $total = $price + ($price * $tax);
   return $total;
@@ -1151,7 +1151,35 @@ function calcTotal(float $price, float $tax) : float {
 echo calcTotal(10, 0.10);
 echo "<br>";
 echo calcTotal(120.12, 0.3);
+*/
 
+# Exercise 6 - variadic functions, but in the chill “Euler pace”, nothing dramatic
+
+
+/*
+
+Create a function called addAll() that:
+
+accepts any number of numbers using ...$nums
+sums all of them
+returns the total
+
+*/
+
+function addAll(...$nums) {
+
+  $e = 0;
+  
+  foreach ($nums as $x) {
+    $e = $e + $x;
+  }
+
+  return $e;
+}
+
+echo addAll(1, 2, 3);
+echo "<br>";
+echo addAll(12, 100, 8);
 
 # FINAL substantial exercise
 
