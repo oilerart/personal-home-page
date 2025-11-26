@@ -1236,6 +1236,7 @@ $member4 = ['name' => 'Dave', 'status' => 'active', 'joined' => 2023];
 
 */
 
+/*
 $m1 = ['name' => 'Alice', 'status' => 'active', 'joined' => 2021];
 $m2 = ['name' => 'Bob', 'status' => 'inactive', 'joined' => 2022];
 $m3 = ['name' => 'Carol', 'status' => 'active', 'joined' => 2019];
@@ -1262,4 +1263,47 @@ function processMembers(int $minYear = 2020, bool $addEligibleFlag = false, &...
 
 $test = processMembers(2020, false, $m1, $m2, $m3, $m4);
 
-print_r($test);
+print_r($test); */
+
+
+// ============================================
+// SECTION 15: ARRAYS
+// ============================================
+
+// intro
+
+# Exercise 1 - arrays meet loops, a love story
+
+/*
+Create an array called $memberships with these statuses as strings:
+"active", "expired", "active", "cancelled", "active", "pending"
+
+Then:
+1. Use count() to echo the total number of memberships
+2. Create a variable $activeCount and manually count how many are "active" 
+   using a foreach loop (check each one with an if statement)
+3. Echo the active count
+*/
+
+
+$memberships = array("active", "expired", "active", "cancelled", "active", "pending");
+
+#1
+
+echo count($memberships);
+echo "<br>";
+
+#2
+
+$activeCount = 0;
+
+foreach ($memberships as $x) {
+  if ($x == 'active') {
+    $activeCount++ ;
+  }
+
+}
+
+#3
+
+echo $activeCount;
