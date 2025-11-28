@@ -1325,7 +1325,7 @@ Then:
 5. Use count() to see how many items are in the array (spoiler: it's NOT 16)
 */
 
-$plugins[2] = "MemberPress";
+/* $plugins[2] = "MemberPress";
 $plugins[5] = "Pretty Links";  
 $plugins[9] = "Affiliate Royale";
 
@@ -1351,4 +1351,49 @@ $plugins[15] = "Popup Domination";
 
 echo count($plugins);
 echo "<br>";
-print_r($plugins);
+print_r($plugins); */
+
+# Exercise 3 - the membership profile (welcome to real WordPress data)
+
+/*
+Create an associative array called $member with these keys and values:
+'user_id' => 4729
+'email' => 'euler@caseproof.com'
+'status' => 'active'
+'plan' => 'Pro Annual'
+'expires' => '2025-12-31'
+
+Then:
+1. Echo just the email
+2. Change the status to 'expired'
+3. Add a new key 'last_login' with value '2024-11-28'
+4. Loop through the entire array and display each key-value pair like:
+   "user_id: 4729"
+   "email: euler@caseproof.com"
+   etc.
+*/
+
+$membership_profile = array("user_id" => 4729, "email" => "euler@caseproof.com", "status" => "active", "plan" => "Pro Annual", "expires" => "2024-11-28");
+
+#1
+
+echo $membership_profile["email"];
+echo "<br>";
+#2
+
+$membership_profile["status"] = 'expired';
+
+// print_r($membership_profile);
+
+#3
+
+$membership_profile["last_login"] = "2024-11-28";
+
+// print_r($membership_profile);
+
+#4
+
+foreach ($membership_profile as $x => $y) {
+  echo "$x : $y"; 
+  echo "<br>";
+}
