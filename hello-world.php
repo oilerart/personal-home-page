@@ -1286,7 +1286,7 @@ Then:
 */
 
 
-$memberships = array("active", "expired", "active", "cancelled", "active", "pending");
+/* $memberships = array("active", "expired", "active", "cancelled", "active", "pending");
 
 #1
 
@@ -1306,4 +1306,49 @@ foreach ($memberships as $x) {
 
 #3
 
-echo $activeCount;
+echo $activeCount; */
+
+
+# Exercise 2 - the gap filler
+
+/*
+Create an indexed array with these specific indexes and values:
+$plugins[2] = "MemberPress"
+$plugins[5] = "Pretty Links"  
+$plugins[9] = "Affiliate Royale"
+
+Then:
+1. Echo the value at index 5
+2. Use array_push() to add "Easy Affiliate" to the array
+3. Use var_dump() to see the entire array and find what index "Easy Affiliate" got
+4. Manually add a new plugin at index 15: "Popup Domination"
+5. Use count() to see how many items are in the array (spoiler: it's NOT 16)
+*/
+
+$plugins[2] = "MemberPress";
+$plugins[5] = "Pretty Links";  
+$plugins[9] = "Affiliate Royale";
+
+#1
+
+echo $plugins[5];
+echo "<br>";
+
+#2
+
+array_push($plugins, "Easy Affiliate");
+
+#3
+
+var_dump($plugins);
+echo "<br>";
+
+#4
+
+$plugins[15] = "Popup Domination";
+
+#5
+
+echo count($plugins);
+echo "<br>";
+print_r($plugins);
