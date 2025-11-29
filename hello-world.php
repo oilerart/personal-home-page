@@ -1373,7 +1373,7 @@ Then:
    etc.
 */
 
-$membership_profile = array("user_id" => 4729, "email" => "euler@caseproof.com", "status" => "active", "plan" => "Pro Annual", "expires" => "2024-11-28");
+/* $membership_profile = array("user_id" => 4729, "email" => "euler@caseproof.com", "status" => "active", "plan" => "Pro Annual", "expires" => "2024-11-28");
 
 #1
 
@@ -1396,4 +1396,46 @@ $membership_profile["last_login"] = "2024-11-28";
 foreach ($membership_profile as $x => $y) {
   echo "$x : $y"; 
   echo "<br>";
-}
+} */
+
+# Exercise 4 - mini dashboard
+
+/*
+Create three different arrays to simulate MemberPress dashboard data:
+
+1. Indexed array called $recent_actions with these values:
+   "login", "viewed account page", "updated profile"
+
+2. Associative array called $mepr_settings with:
+   "currency" => "USD"
+   "taxes_enabled" => true
+   "default_plan" => "Basic Monthly"
+
+3. Start with an empty array called $debug_log, then manually add:
+   index 0: "no errors"
+   index 1: "all good here"  
+   index 2: "still running"
+
+Finally, display all three arrays cleanly using:
+echo "<pre>";
+print_r($recent_actions);
+print_r($mepr_settings);
+print_r($debug_log);
+echo "</pre>";
+*/
+
+$recent_actions = ["login", "viewed account page", "updated profile"];
+
+$mepr_settings = ["currency" => "usd", "taxes_enabled" => true, "default_plan" => "Basic Monthly"];
+
+$debug_log = [];
+
+$debug_log[0] = "no errors";
+$debug_log[1] = "all good here";
+$debug_log[2] = "still running";
+
+echo "<pre>";
+print_r($recent_actions);
+print_r($mepr_settings);
+print_r($debug_log);
+echo "</pre>";
