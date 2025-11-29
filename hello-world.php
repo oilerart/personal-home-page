@@ -1424,7 +1424,7 @@ print_r($debug_log);
 echo "</pre>";
 */
 
-$recent_actions = ["login", "viewed account page", "updated profile"];
+/* $recent_actions = ["login", "viewed account page", "updated profile"];
 
 $mepr_settings = ["currency" => "usd", "taxes_enabled" => true, "default_plan" => "Basic Monthly"];
 
@@ -1439,3 +1439,68 @@ print_r($recent_actions);
 print_r($mepr_settings);
 print_r($debug_log);
 echo "</pre>";
+*/
+
+# Exercise 5 - data extractor
+
+/*
+Create an associative array called $transaction with:
+"id" => "txn_47291"
+"amount" => 99.00
+"status" => "completed"
+"user_id" => 4729
+"date" => "2024-11-28"
+
+Then:
+1. Echo only the transaction status
+2. Echo only the amount
+3. Change the syntax: access the user_id using single quotes instead of double quotes
+4. Create an indexed array called $logs with three strings:
+   "Payment processed", "Email sent", "Database updated"
+5. Echo the second log entry (remember: counting starts at 0)
+6. Loop through $transaction and display each key-value pair formatted as:
+   "id: txn_47291"
+   "amount: 99"
+   etc.
+*/
+
+$transaction = [
+  "id" => "txn_47291",
+  "amount" => 99.00,
+  "status" => "completed",
+  "user_id" => 4729,
+  "date" => "2024-11-28"
+
+];
+
+#1
+
+echo $transaction["status"];
+echo "<br>";
+
+#2
+
+echo $transaction["amount"];
+echo "<br>";
+
+#3
+
+$e = $transaction['user_id'];
+echo $e;
+echo "<br>";
+
+#4
+
+$logs = ["Payment processed", "Email sent", "Database updated"];
+
+#5
+
+echo $logs[1];
+echo "<br>";
+
+#6
+
+foreach ($transaction as $x => $y) {
+  echo "$x : $y";
+  echo "<br>";
+}
