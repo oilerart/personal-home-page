@@ -1554,3 +1554,61 @@ $x = "CORRUPTED";
 
 echo "<br>";
 var_dump($status); */
+
+# Exercise 7 - affiliate link hoarder
+
+/* 
+You are building a system for Pretty Links that stores recently created affiliate links.
+
+1. Create an indexed array called $links with three items:
+   "amazon", "shopify", "udemy"
+
+2. Add one more item using []:
+   "clickbank"
+
+3. Add THREE more items at once using array_push():
+   "walmart", "ebay", "aliexpress"
+
+4. Create an associative array called $meta with:
+   "count" => 4
+   "type"  => "affiliate"
+
+5. Add TWO more key/value items using += :
+   "generated_by" => "EulerBot9000"
+   "version"      => 1.0
+
+6. Print BOTH arrays using print_r() wrapped in <pre> tags.
+*/
+
+/* 
+#1
+
+$links = ["amazon", "shopify", "udemy"];
+
+#2
+
+$links[] = "clickbank";
+
+// print_r($links);
+
+#3
+
+array_push($links, "walmart", "ebay", "aliexpress");
+
+#4
+
+$meta = ["count" => 4,"type" => "affiliate"];
+
+#5
+
+$meta += ["generated_by" => "EulerBot9000", "version" => 1.0];
+
+#6
+
+echo "<pre>";
+
+print_r($links);
+echo "<br>";
+print_r($meta);
+
+echo "</pre>"; */
