@@ -1464,7 +1464,7 @@ Then:
    etc.
 */
 
-$transaction = [
+/* $transaction = [
   "id" => "txn_47291",
   "amount" => 99.00,
   "status" => "completed",
@@ -1503,4 +1503,54 @@ echo "<br>";
 foreach ($transaction as $x => $y) {
   echo "$x : $y";
   echo "<br>";
+} */
+
+
+# Exercise 6 - unset disaster
+
+/*
+Create an array: $statuses = ["active", "pending", "cancelled"]
+
+1. Change "pending" to "expired" (without a loop)
+2. Use a foreach loop with & to convert all items to uppercase
+3. DON'T use unset($x) after the loop (we're breaking it on purpose)
+4. After the loop, do: $x = "CORRUPTED"
+5. Use print_r() in <pre> tags to see how the last item got destroyed
+
+This shows why unset() matters after reference loops.
+*/
+
+/* $status = ["active", "pending", "cancelled"];
+
+#1
+
+$status[1] = "expired";
+
+#2
+
+foreach ($status as &$x) {
+  $x = strtoupper($x);
 }
+
+#3 don't use unset($x) to see how things behave. Use it afterwards
+
+#4
+
+ $x = "CORRUPTED";
+
+#5
+
+ echo "<pre>";
+print_r($status);
+echo "</pre>";
+echo "<br>";
+
+#6 using unset:
+
+unset($x);
+print_r($status);
+
+$x = "CORRUPTED";
+
+echo "<br>";
+var_dump($status); */
