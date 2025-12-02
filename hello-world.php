@@ -1613,7 +1613,7 @@ print_r($meta);
 
 echo "</pre>"; */
 
-# Exercise 8 - ticket cleanup
+# Exercise 8.0 - ticket cleanup
 
 /*
 Create: $tickets = ["bug-report", "feature-request", "billing-issue", "refund-request", "login-problem"]
@@ -1624,7 +1624,7 @@ Create: $tickets = ["bug-report", "feature-request", "billing-issue", "refund-re
 4. Print final array in <pre> tags
 */
 
-$tickets = ["bug-report", "feature-request", "billing-issue", "refund-request", "login-problem"];
+/* $tickets = ["bug-report", "feature-request", "billing-issue", "refund-request", "login-problem"];
 
 
 #1
@@ -1644,3 +1644,41 @@ array_pop($tickets);
 echo "<pre>";
 print_r($tickets);
 echo "</pre>";
+
+*/
+
+# Exercise 8.1 - splice and multi-unset (position-based removal)
+
+/*
+Create: $members = ["Alice", "Bob", "Carol", "Dave", "Eve", "Frank"]
+
+1. Use array_splice() to remove 2 items starting at index 2
+2. Print the array to see it got reindexed (no gaps)
+3. Use unset() to remove indexes 0 and 2 in one line
+4. Print the array again to see the gaps this time
+5. Use print_r() in <pre> tags for both outputs
+*/
+
+$members = ["Alice", "Bob", "Carol", "Dave", "Eve", "Frank"];
+
+#1
+
+array_splice($members, 2, 2);
+
+#2
+
+echo "<pre>";
+print_r($members);
+echo "</pre>";
+echo "<br>";
+
+#3
+
+unset($members[0], $members[2]);
+
+#4
+
+echo "<pre>";
+print_r($members);
+echo "</pre>";
+echo "<br>";
