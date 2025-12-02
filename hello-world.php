@@ -1659,7 +1659,7 @@ Create: $members = ["Alice", "Bob", "Carol", "Dave", "Eve", "Frank"]
 5. Use print_r() in <pre> tags for both outputs
 */
 
-$members = ["Alice", "Bob", "Carol", "Dave", "Eve", "Frank"];
+/* $members = ["Alice", "Bob", "Carol", "Dave", "Eve", "Frank"];
 
 #1
 
@@ -1681,4 +1681,53 @@ unset($members[0], $members[2]);
 echo "<pre>";
 print_r($members);
 echo "</pre>";
+echo "<br>"; */
+
+# Exercise 8.2 - value filtering and associative cleanup (content-based removal)
+
+/*
+Create: $statuses = ["active", "expired", "active", "cancelled", "pending", "active"]
+
+1. Use array_diff() to remove all "active" and "expired" values
+2. Print the result in <pre> tags (notice the original indexes remain)
+
+Create: $user = ["name" => "Euler", "email" => "euler@test.com", "role" => "admin", "temp_token" => "xyz123"]
+
+3. Use unset() to remove the "temp_token" key
+4. Print the $user array in <pre> tags
+*/
+
+$statuses = ['active', 'expired', 'active', 'cancelled', 'pending', 'active'];
+
+#1
+
+$new_statuses = array_diff($statuses, ['active', 'expired']);
+
+#2
+
+echo "<pre>";
+print_r($new_statuses);
+echo "</pre>";
 echo "<br>";
+
+$user = [
+  'name' => 'Euler',
+  'email' => 'euler@test.com',
+  'role' => 'admin',
+  'temp_token' => 'xyz123'
+];
+
+unset($user['temp_token']);
+
+echo "<pre>";
+print_r($user);
+echo "</pre>";
+echo "<br>";
+
+// now let's see what happens when we use array_splice() to remove items from associative arrays
+
+array_splice($user, 1, 1);
+
+print_r($user);
+
+// nothing special, apparently
