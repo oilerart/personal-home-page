@@ -1612,3 +1612,35 @@ echo "<br>";
 print_r($meta);
 
 echo "</pre>"; */
+
+# Exercise 8 - ticket cleanup
+
+/*
+Create: $tickets = ["bug-report", "feature-request", "billing-issue", "refund-request", "login-problem"]
+
+1. Remove index 1 with unset()
+2. Remove first item with array_shift()
+3. Remove last item with array_pop()
+4. Print final array in <pre> tags
+*/
+
+$tickets = ["bug-report", "feature-request", "billing-issue", "refund-request", "login-problem"];
+
+
+#1
+
+unset($tickets [1]);
+
+#2
+
+array_shift($tickets);
+
+#3
+
+array_pop($tickets);
+
+#4
+
+echo "<pre>";
+print_r($tickets);
+echo "</pre>";
