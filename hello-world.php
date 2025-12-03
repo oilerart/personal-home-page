@@ -1697,7 +1697,7 @@ Create: $user = ["name" => "Euler", "email" => "euler@test.com", "role" => "admi
 4. Print the $user array in <pre> tags
 */
 
-$statuses = ['active', 'expired', 'active', 'cancelled', 'pending', 'active'];
+/* $statuses = ['active', 'expired', 'active', 'cancelled', 'pending', 'active'];
 
 #1
 
@@ -1730,4 +1730,88 @@ array_splice($user, 1, 1);
 
 print_r($user);
 
-// nothing special, apparently
+// nothing special, apparently */
+
+# Exercise 9 - sorting challenge
+
+/*
+Create two arrays:
+
+$prices = [99, 49, 199, 29, 149]
+$members = ["alice" => 3, "euler" => 15, "bob" => 7, "carol" => 1]
+
+Tasks:
+1. Sort $prices ascending with sort() and print it
+2. Sort $prices descending with rsort() and print it
+3. Sort $members by value (signup count) ascending with asort() and print
+4. Sort $members by value descending with arsort() and print
+5. Sort $members by key (name) ascending with ksort() and print
+6. Sort $members by key descending with krsort() and print
+
+Use print_r() in <pre> tags for all outputs.
+Notice how associative sorts preserve key-value pairs.
+*/
+
+$prices = [99, 49, 199, 29, 149];
+
+$members = [
+  'alice' => 3,
+  'euler' => 15,
+  'bob' => 7,
+  'carol' => 1,
+
+];
+
+#1
+
+sort($prices);
+
+echo "<pre>";
+print_r($prices);
+echo "</pre>";
+echo "<br>";
+
+#2
+
+rsort($prices);
+
+echo "<pre>";
+print_r($prices);
+echo "</pre>";
+echo "<br>";
+
+#3
+
+asort($members);
+
+echo "<pre>";
+print_r($members);
+echo "</pre>";
+echo "<br>";
+
+#4
+
+arsort ($members);
+
+echo "<pre>";
+print_r($members);
+echo "</pre>";
+echo "<br>";
+
+#5
+
+ksort($members);
+
+echo "<pre>";
+print_r($members);
+echo "</pre>";
+echo "<br>";
+
+#6
+
+krsort($members);
+
+echo "<pre>";
+print_r($members);
+echo "</pre>";
+echo "<br>";
