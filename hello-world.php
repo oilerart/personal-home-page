@@ -1236,8 +1236,8 @@ $member4 = ['name' => 'Dave', 'status' => 'active', 'joined' => 2023];
 
 */
 
-/*
-$m1 = ['name' => 'Alice', 'status' => 'active', 'joined' => 2021];
+
+/* $m1 = ['name' => 'Alice', 'status' => 'active', 'joined' => 2021];
 $m2 = ['name' => 'Bob', 'status' => 'inactive', 'joined' => 2022];
 $m3 = ['name' => 'Carol', 'status' => 'active', 'joined' => 2019];
 $m4 = ['name' => 'Dave', 'status' => 'active', 'joined' => 2023];
@@ -1263,8 +1263,10 @@ function processMembers(int $minYear = 2020, bool $addEligibleFlag = false, &...
 
 $test = processMembers(2020, false, $m1, $m2, $m3, $m4);
 
-print_r($test); */
-
+echo "<pre>";
+print_r($test); 
+echo "</pre>";
+*/
 
 // ============================================
 // SECTION 15: ARRAYS
@@ -1752,7 +1754,7 @@ Use print_r() in <pre> tags for all outputs.
 Notice how associative sorts preserve key-value pairs.
 */
 
-$prices = [99, 49, 199, 29, 149];
+/* $prices = [99, 49, 199, 29, 149];
 
 $members = [
   'alice' => 3,
@@ -1801,7 +1803,7 @@ echo "<br>";
 #5
 
 ksort($members);
-
+/
 echo "<pre>";
 print_r($members);
 echo "</pre>";
@@ -1815,3 +1817,83 @@ echo "<pre>";
 print_r($members);
 echo "</pre>";
 echo "<br>";
+*/
+
+# Exercise 10 - nested member data (real WordPress structure)
+
+/*
+Create a multidimensional associative array called $subscriptions:
+
+$subscriptions = [
+  ['user' => 'Alice', 'plan' => 'Pro', 'price' => 99, 'status' => 'active'],
+  ['user' => 'Bob', 'plan' => 'Basic', 'price' => 29, 'status' => 'expired'],
+  ['user' => 'Carol', 'plan' => 'Pro', 'price' => 99, 'status' => 'active']
+];
+
+Tasks:
+1. Echo Bob's plan (access second array, 'plan' key)
+2. Change Carol's status to 'cancelled'
+3. Loop through all subscriptions with foreach and display:
+   "Alice is on Pro plan - active"
+   "Bob is on Basic plan - expired"
+   etc.
+4. Use a nested foreach to calculate total revenue from 'active' subscriptions only
+*/
+
+$subscriptions = [
+
+  ['user' => 'Alice',
+   'plan' => 'Pro',
+   'price' => 99,
+   'status' => 'active',
+  ],
+
+  ['user' => 'Bob',
+   'plan' => 'Basic',
+   'price' => 29,
+   'status' => 'expired',
+  ],
+
+  ['user' => 'Carol',
+   'plan' => 'Pro',
+   'price' => 99,
+   'status' => 'active',
+],
+
+];
+
+
+#1
+/*
+echo $subscriptions[1]['plan'];
+echo "<br>";
+
+#2
+
+$subscriptions[2]['status'] = 'cancelled';*/
+
+#3
+
+/* foreach ($subscriptions as $subscription){
+
+  echo $subscription['user'] . " is on " . $subscription['plan'] . " plan - " . $subscription['status'];
+  echo "<br>";
+
+}; */
+
+#4
+
+$total_revenue = 0;
+
+foreach ($subscriptions as $subscription) {
+
+  foreach ($subscription as $key => $value){
+    if ($value == 'active'){
+      $total_revenue = $total_revenue + $subscription['price'];
+    }
+  }
+
+  
+}
+
+echo $total_revenue;
