@@ -1926,7 +1926,7 @@ function like: function($item) { return */
 
 
 # it makes more sense call it as $subscriptions, not $memberships
-$subscriptions = [
+/* $subscriptions = [
   ['id' => 1, 'name' => 'Basic Plan', 'status' => 'active', 'price' => 29],
   ['id' => 2, 'name' => 'Pro Plan', 'status' => 'expired', 'price' => 99],
   ['id' => 3, 'name' => 'Premium Plan', 'status' => 'active', 'price' => 149],
@@ -1953,4 +1953,62 @@ $count = count($active_only);
 
 echo "<pre>";
 echo "The number of active memberships are $count";
+echo "</pre>"; */
+
+
+# Exercise 12 - extracting user emails for bulk actions
+
+/*
+A customer needs to send a promotional email to all Pro plan members. 
+You need to extract just the email addresses from the user data.
+
+Create an array called $users with this data:
+
+$users = [
+    ['id' => 101, 'name' => 'Alice', 'email' => 'alice@example.com', 'plan' => 'Pro'],
+    ['id' => 102, 'name' => 'Bob', 'email' => 'bob@example.com', 'plan' => 'Basic'],
+    ['id' => 103, 'name' => 'Carol', 'email' => 'carol@example.com', 'plan' => 'Pro'],
+    ['id' => 104, 'name' => 'Dan', 'email' => 'dan@example.com', 'plan' => 'Enterprise'],
+    ['id' => 105, 'name' => 'Eve', 'email' => 'eve@example.com', 'plan' => 'Pro']
+];
+
+Tasks:
+1. First, use array_filter() to create $pro_users containing only users where 
+   plan is 'Pro'
+2. Then, use array_column() to extract just the 'email' values from $pro_users 
+   into a new array called $pro_emails
+3. Use print_r() to display the $pro_emails array
+4. Use implode() to convert the array into a comma-separated string and echo it
+
+Hint: array_column($array, 'column_name') pulls out a single column from a 
+multi-dimensional array. implode(', ', $array) joins array elements with a separator.
+*/
+
+$users = [
+  ['id' => 101, 'name' => 'Alice', 'email' => 'alice@example.com', 'plan' => 'Pro'],
+  ['id' => 102, 'name' => 'Bob', 'email' => 'bob@example.com', 'plan' => 'Basic'],
+  ['id' => 103, 'name' => 'Carol', 'email' => 'carol@example.com', 'plan' => 'Pro'],
+  ['id' => 104, 'name' => 'Dan', 'email' => 'dan@example.com', 'plan' => 'Enterprise'],
+  ['id' => 105, 'name' => 'Eve', 'email' => 'eve@example.com', 'plan' => 'Pro']
+];
+
+#1
+
+$pro_users = array_filter($users, function($e){
+  return $e['plan'] === 'Pro';
+});
+
+#2
+
+$pro_emails = array_column($pro_users, 'email');
+
+#3
+
+echo "<pre>";
+print_r($pro_emails);
 echo "</pre>";
+echo "<br>";
+
+#4
+
+echo implode(',' , $pro_emails);
