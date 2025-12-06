@@ -1839,7 +1839,7 @@ Tasks:
    etc.
 4. Use a nested foreach to calculate total revenue from 'active' subscriptions only
 */
-
+/*
 $subscriptions = [
 
   ['user' => 'Alice',
@@ -1861,7 +1861,7 @@ $subscriptions = [
 ],
 
 ];
-
+*/
 
 #1
 /*
@@ -1883,7 +1883,7 @@ $subscriptions[2]['status'] = 'cancelled';*/
 
 #4
 
-$total_revenue = 0;
+/* $total_revenue = 0;
 
 foreach ($subscriptions as $subscription) {
 
@@ -1896,4 +1896,61 @@ foreach ($subscriptions as $subscription) {
   
 }
 
-echo $total_revenue;
+echo $total_revenue; */
+
+
+# Exercise 11 - filtering active memberships
+
+/*
+You're helping a customer debug their member list. They want to show only 
+active memberships on the account dashboard.
+
+Create an array called $memberships with this data:
+
+$memberships = [
+    ['id' => 1, 'name' => 'Basic Plan', 'status' => 'active', 'price' => 29],
+    ['id' => 2, 'name' => 'Pro Plan', 'status' => 'expired', 'price' => 99],
+    ['id' => 3, 'name' => 'Premium Plan', 'status' => 'active', 'price' => 149],
+    ['id' => 4, 'name' => 'Trial Plan', 'status' => 'cancelled', 'price' => 0],
+    ['id' => 5, 'name' => 'Enterprise Plan', 'status' => 'active', 'price' => 299]
+];
+
+Tasks:
+1. Use array_filter() to create a new array called $active_only that contains 
+   only memberships where status is 'active'
+2. Use print_r() to display the filtered array
+3. Use count() to echo how many active memberships there are
+
+Hint: array_filter() needs a callback function. You can use an anonymous 
+function like: function($item) { return */
+
+
+# it makes more sense call it as $subscriptions, not $memberships
+$subscriptions = [
+  ['id' => 1, 'name' => 'Basic Plan', 'status' => 'active', 'price' => 29],
+  ['id' => 2, 'name' => 'Pro Plan', 'status' => 'expired', 'price' => 99],
+  ['id' => 3, 'name' => 'Premium Plan', 'status' => 'active', 'price' => 149],
+  ['id' => 4, 'name' => 'Trial Plan', 'status' => 'cancelled', 'price' => 0],
+  ['id' => 5, 'name' => 'Enterprise Plan', 'status' => 'active', 'price' => 299]
+];
+
+
+#1
+
+$active_only = array_filter($subscriptions, function ($e) {
+  return $e['status'] === 'active';
+}) ;
+
+#2
+
+echo "<pre>";
+print_r($active_only);
+echo "</pre>";
+
+#3
+
+$count = count($active_only);
+
+echo "<pre>";
+echo "The number of active memberships are $count";
+echo "</pre>";
