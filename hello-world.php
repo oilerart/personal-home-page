@@ -1984,7 +1984,7 @@ Hint: array_column($array, 'column_name') pulls out a single column from a
 multi-dimensional array. implode(', ', $array) joins array elements with a separator.
 */
 
-$users = [
+/* $users = [
   ['id' => 101, 'name' => 'Alice', 'email' => 'alice@example.com', 'plan' => 'Pro'],
   ['id' => 102, 'name' => 'Bob', 'email' => 'bob@example.com', 'plan' => 'Basic'],
   ['id' => 103, 'name' => 'Carol', 'email' => 'carol@example.com', 'plan' => 'Pro'],
@@ -2011,4 +2011,65 @@ echo "<br>";
 
 #4
 
-echo implode(',' , $pro_emails);
+echo implode(', ' , $pro_emails);
+*/
+
+# Exercise 13 - calculating revenue from active subscriptions
+
+/*
+The customer wants a monthly revenue report showing total income from active 
+subscriptions only. You need to filter, calculate, and display the data.
+
+Create an array called $subscriptions with this data:
+
+$subscriptions = [
+    ['user' => 'Alice', 'plan' => 'Pro', 'price' => 99, 'status' => 'active'],
+    ['user' => 'Bob', 'plan' => 'Basic', 'price' => 29, 'status' => 'expired'],
+    ['user' => 'Carol', 'plan' => 'Enterprise', 'price' => 299, 'status' => 'active'],
+    ['user' => 'Dan', 'plan' => 'Pro', 'price' => 99, 'status' => 'cancelled'],
+    ['user' => 'Eve', 'plan' => 'Premium', 'price' => 149, 'status' => 'active'],
+    ['user' => 'Frank', 'plan' => 'Basic', 'price' => 29, 'status' => 'active']
+];
+
+Tasks:
+1. Use array_filter() to get only subscriptions where status is 'active'
+2. Use array_column() to extract just the 'price' values from active subscriptions
+3. Use array_sum() to calculate the total monthly revenue
+4. Use count() on the filtered array to see how many active subscriptions there are
+5. Echo a nice summary like: "Total monthly revenue: $576 from 4 active subscriptions"
+
+Hint: You can chain operations - filter first, then extract column from the 
+filtered result. array_sum() adds up all numbers in an array.
+*/
+
+
+$subscriptions = [
+  ['user' => 'Alice', 'plan' => 'Pro', 'price' => 99, 'status' => 'active'],
+  ['user' => 'Bob', 'plan' => 'Basic', 'price' => 29, 'status' => 'expired'],
+  ['user' => 'Carol', 'plan' => 'Enterprise', 'price' => 299, 'status' => 'active'],
+  ['user' => 'Dan', 'plan' => 'Pro', 'price' => 99, 'status' => 'cancelled'],
+  ['user' => 'Eve', 'plan' => 'Premium', 'price' => 149, 'status' => 'active'],
+  ['user' => 'Frank', 'plan' => 'Basic', 'price' => 29, 'status' => 'active']
+];
+
+#1
+
+$active_subscriptions = array_filter($subscriptions, function($e){
+  return $e['status'] === 'active'; 
+});
+
+#2
+
+$active_subs_prices = array_column($active_subscriptions, 'price');
+
+#3
+
+$month_revenue = array_sum($active_subs_prices);
+
+#4
+
+$count_active_subs = count($active_subscriptions);
+
+#5
+
+echo "Total monthly revenue: $" . number_format($month_revenue, 2) . " from $count_active_subs active subscriptions";
