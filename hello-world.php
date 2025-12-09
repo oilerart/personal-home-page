@@ -2043,7 +2043,7 @@ filtered result. array_sum() adds up all numbers in an array.
 */
 
 
-$subscriptions = [
+/* $subscriptions = [
   ['user' => 'Alice', 'plan' => 'Pro', 'price' => 99, 'status' => 'active'],
   ['user' => 'Bob', 'plan' => 'Basic', 'price' => 29, 'status' => 'expired'],
   ['user' => 'Carol', 'plan' => 'Enterprise', 'price' => 299, 'status' => 'active'],
@@ -2072,4 +2072,84 @@ $count_active_subs = count($active_subscriptions);
 
 #5
 
-echo "Total monthly revenue: $" . number_format($month_revenue, 2) . " from $count_active_subs active subscriptions";
+echo "Total monthly revenue: $" . number_format($month_revenue, 2) . " from $count_active_subs active subscriptions"; */
+
+
+// PUTTING EVERYTHING TOGETHER
+
+
+# Exercise 14 - membership level access control with switch
+
+/*
+A customer wants to display different content based on membership levels.
+You need to use a switch statement to determine what features each level gets.
+
+Create an array called $members with this data:
+
+$members = [
+    ['name' => 'Alice', 'level' => 'free'],
+    ['name' => 'Bob', 'level' => 'basic'],
+    ['name' => 'Carol', 'level' => 'pro'],
+    ['name' => 'Dan', 'level' => 'enterprise'],
+    ['name' => 'Eve', 'level' => 'basic']
+];
+
+Tasks:
+1. Loop through the $members array using foreach
+2. For each member, use a switch statement on their 'level' to determine their access
+3. Display output like: "Alice (free) has access to: Public content only"
+4. Each level should have different access:
+   - free: "Public content only"
+   - basic: "Public content, Basic tutorials"
+   - pro: "Public content, Basic tutorials, Premium videos"
+   - enterprise: "Public content, Basic tutorials, Premium videos, Priority support"
+5. Add a default case for unknown levels: "Unknown membership level"
+
+Hint: Use switch($member['level']) inside your foreach loop. Each case should 
+echo the member's name and their access level.
+*/
+
+$members = [
+  ['name' => 'Alice', 'level' => 'free'],
+  ['name' => 'Bob', 'level' => 'basic'],
+  ['name' => 'Carol', 'level' => 'pro'],
+  ['name' => 'Dan', 'level' => 'enterprise'],
+  ['name' => 'Eve', 'level' => 'basic'],
+  ['name' => 'Euler', 'level' => 'unknown'],
+];
+
+#1
+
+foreach ($members as $index => $member) {
+
+#2, 3 and 4
+
+  switch ($member['level']) {
+
+    case 'free':
+      echo "{$member['name']} ({$member['level']}) has access to: Public content only<br>";
+      break;
+
+    case 'basic':
+      echo $member['name'] . "(" . $member['level'] . ")" . " has access to: Public content, Basic tutorials";
+      echo "<br>";
+      break;
+
+    case 'pro':
+      echo $member['name'] . "(" . $member['level'] . ")" . " has access to: Public content, Basic tutorials, Premium videos";
+      echo "<br>";
+      break;
+    
+    case 'enterprise':
+      echo $member['name'] . "(" . $member['level'] . ")" . " has access to: Public content, Basic tutorials, Premium videos, Priority support";
+      echo "<br>";
+      break;
+    
+    #5
+    default:
+      echo "{$member['name']} ({$member['level']}) - Unknown membership level";
+      break;
+
+  }    
+
+}
