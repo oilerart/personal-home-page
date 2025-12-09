@@ -2109,7 +2109,7 @@ Hint: Use switch($member['level']) inside your foreach loop. Each case should
 echo the member's name and their access level.
 */
 
-$members = [
+/* $members = [
   ['name' => 'Alice', 'level' => 'free'],
   ['name' => 'Bob', 'level' => 'basic'],
   ['name' => 'Carol', 'level' => 'pro'],
@@ -2152,4 +2152,89 @@ foreach ($members as $index => $member) {
 
   }    
 
-}
+} */
+
+
+# Exercise 15 - nested loops with subscription reports
+
+/*
+A customer wants a report showing all their subscription plans and the users 
+subscribed to each plan. You need to use nested loops to display this data.
+
+Create a multidimensional array called $plans with this structure:
+
+$plans = [
+    'Basic' => [
+        ['user' => 'Alice', 'status' => 'active'],
+        ['user' => 'Bob', 'status' => 'expired'],
+        ['user' => 'Charlie', 'status' => 'active']
+    ],
+    'Pro' => [
+        ['user' => 'Diana', 'status' => 'active'],
+        ['user' => 'Eve', 'status' => 'active']
+    ],
+    'Enterprise' => [
+        ['user' => 'Frank', 'status' => 'active'],
+        ['user' => 'Grace', 'status' => 'cancelled'],
+        ['user' => 'Henry', 'status' => 'active']
+    ]
+];
+
+Tasks:
+1. Use a foreach loop to iterate through each plan (Basic, Pro, Enterprise)
+2. For each plan, echo the plan name as a header
+3. Use a nested foreach loop to iterate through the subscribers of that plan
+4. Display each subscriber with format: "- Alice (active)"
+5. After each plan's subscribers, echo a blank line for spacing
+
+Expected output:
+Basic Plan:
+- Alice (active)
+- Bob (expired)
+- Charlie (active)
+
+Pro Plan:
+- Diana (active)
+- Eve (active)
+
+Enterprise Plan:
+- Frank (active)
+- Grace (cancelled)
+- Henry (active)
+
+Hint: The outer loop gives you $plan_name => $subscribers, and the inner loop 
+goes through each $subscriber in $subscribers array.
+*/
+
+$plans = [
+  'Basic' => [
+      ['user' => 'Alice', 'status' => 'active'],
+      ['user' => 'Bob', 'status' => 'expired'],
+      ['user' => 'Charlie', 'status' => 'active']
+  ],
+  'Pro' => [
+      ['user' => 'Diana', 'status' => 'active'],
+      ['user' => 'Eve', 'status' => 'active']
+  ],
+  'Enterprise' => [
+      ['user' => 'Frank', 'status' => 'active'],
+      ['user' => 'Grace', 'status' => 'cancelled'],
+      ['user' => 'Henry', 'status' => 'active']
+  ]
+];
+
+#1 and #2
+
+foreach ($plans as $plan => $subscribers) {
+  echo "{$plan} Plan:<br>";
+
+  #3 and 4
+
+  foreach ($subscribers as $subscriber) {
+    echo "{$subscriber['user']} ({$subscriber['status']}) <br>";
+  }
+
+  #5
+  echo "<br>";
+  
+} 
