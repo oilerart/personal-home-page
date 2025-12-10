@@ -2206,7 +2206,7 @@ Hint: The outer loop gives you $plan_name => $subscribers, and the inner loop
 goes through each $subscriber in $subscribers array.
 */
 
-$plans = [
+/* $plans = [
   'Basic' => [
       ['user' => 'Alice', 'status' => 'active'],
       ['user' => 'Bob', 'status' => 'expired'],
@@ -2236,5 +2236,108 @@ foreach ($plans as $plan => $subscribers) {
 
   #5
   echo "<br>";
-  
+
 } 
+
+*/
+
+// smal aside for globals
+
+/* echo "<pre>";
+print_r($GLOBALS);
+echo "</pre>"; */
+
+# Exercise 16 - functions that return filtered arrays
+
+/*
+You need to create reusable functions to process membership data. Instead of 
+writing the same filtering code over and over, you'll create functions that 
+can be called anytime you need that specific filter.
+
+Create this array of transactions:
+
+$transactions = [
+    ['id' => 1, 'amount' => 99, 'status' => 'complete', 'type' => 'subscription'],
+    ['id' => 2, 'amount' => 29, 'status' => 'pending', 'type' => 'one-time'],
+    ['id' => 3, 'amount' => 149, 'status' => 'complete', 'type' => 'subscription'],
+    ['id' => 4, 'amount' => 99, 'status' => 'failed', 'type' => 'subscription'],
+    ['id' => 5, 'amount' => 299, 'status' => 'complete', 'type' => 'one-time'],
+    ['id' => 6, 'amount' => 99, 'status' => 'complete', 'type' => 'subscription']
+];
+
+Tasks:
+1. Create a function called get_complete_transactions($transactions) that:
+   - Takes an array of transactions as parameter
+   - Uses array_filter() to return only transactions where status is 'complete'
+   - Returns the filtered array
+
+2. Create a function called get_subscription_transactions($transactions) that:
+   - Takes an array of transactions as parameter
+   - Uses array_filter() to return only transactions where type is 'subscription'
+   - Returns the filtered array
+
+3. Create a function called calculate_total($transactions) that:
+   - Takes an array of transactions as parameter
+   - Uses array_column() to extract all 'amount' values
+   - Uses array_sum() to calculate the total
+   - Returns the total amount
+
+4. Test your functions:
+   - Call get_complete_transactions() and display the count
+   - Call get_subscription_transactions() and display the count
+   - Combine both filters: get complete subscription transactions only
+   - Calculate the total of complete subscription transactions
+
+Hint: You can pass the result of one function into another function, like:
+calculate_total(get_complete_transactions($transactions))
+*/
+
+$transactions = [
+  ['id' => 1, 'amount' => 99, 'status' => 'complete', 'type' => 'subscription'],
+  ['id' => 2, 'amount' => 29, 'status' => 'pending', 'type' => 'one-time'],
+  ['id' => 3, 'amount' => 149, 'status' => 'complete', 'type' => 'subscription'],
+  ['id' => 4, 'amount' => 99, 'status' => 'failed', 'type' => 'subscription'],
+  ['id' => 5, 'amount' => 299, 'status' => 'complete', 'type' => 'one-time'],
+  ['id' => 6, 'amount' => 99, 'status' => 'complete', 'type' => 'subscription']
+];
+
+#1
+
+function get_complete_transactions($transactions) {
+
+  return array_filter($transactions, function($e){
+    return $e['status'] === 'complete';}) ;
+}
+
+#2
+
+function get_subscriptions_transactions($transactions) {
+  return array_filter($transactions, function($e){
+    return $e['type'] === 'subscription';}) ;
+}
+
+#3
+
+function calculate_total($transactions) {
+
+  $amount_values = array_column($transactions, 'amount');
+  return array_sum($amount_values);
+
+}
+
+/*
+
+4. Test your functions:
+   - Call get_complete_transactions() and display the count
+   - Call get_subscription_transactions() and display the count
+   - Combine both filters: get complete subscription transactions only
+   - Calculate the total of complete subscription transactions */
+
+/* echo count(get_complete_transactions($transactions));
+echo "<br>";
+
+echo count(get_subscriptions_transactions($transactions));
+echo "<br>";
+
+echo count(get_complete_transactions(get_subscriptions_transactions($transactions)));
+echo "<br>"; */
