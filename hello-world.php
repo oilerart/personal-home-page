@@ -2292,7 +2292,7 @@ Hint: You can pass the result of one function into another function, like:
 calculate_total(get_complete_transactions($transactions))
 */
 
-$transactions = [
+/* $transactions = [
   ['id' => 1, 'amount' => 99, 'status' => 'complete', 'type' => 'subscription'],
   ['id' => 2, 'amount' => 29, 'status' => 'pending', 'type' => 'one-time'],
   ['id' => 3, 'amount' => 149, 'status' => 'complete', 'type' => 'subscription'],
@@ -2325,14 +2325,6 @@ function calculate_total($transactions) {
 
 }
 
-/*
-
-4. Test your functions:
-   - Call get_complete_transactions() and display the count
-   - Call get_subscription_transactions() and display the count
-   - Combine both filters: get complete subscription transactions only
-   - Calculate the total of complete subscription transactions */
-
 /* echo count(get_complete_transactions($transactions));
 echo "<br>";
 
@@ -2341,3 +2333,70 @@ echo "<br>";
 
 echo count(get_complete_transactions(get_subscriptions_transactions($transactions)));
 echo "<br>"; */
+
+
+
+# Exercise 17 - complex data processing with multiple operations
+
+/*
+A customer needs a detailed membership report. You'll need to process their 
+data using multiple operations: filtering, sorting, calculating, and formatting.
+
+Create this array of members:
+
+$members = [
+    ['name' => 'Alice', 'level' => 'pro', 'joined' => '2023-01-15', 'revenue' => 297],
+    ['name' => 'Bob', 'level' => 'basic', 'joined' => '2023-06-20', 'revenue' => 87],
+    ['name' => 'Carol', 'level' => 'enterprise', 'joined' => '2023-02-10', 'revenue' => 897],
+    ['name' => 'Dan', 'level' => 'basic', 'joined' => '2023-08-05', 'revenue' => 58],
+    ['name' => 'Eve', 'level' => 'pro', 'joined' => '2023-03-12', 'revenue' => 396],
+    ['name' => 'Frank', 'level' => 'enterprise', 'joined' => '2023-01-30', 'revenue' => 1197],
+    ['name' => 'Grace', 'level' => 'basic', 'joined' => '2023-09-18', 'revenue' => 29]
+];
+
+Tasks:
+1. Filter to get only 'pro' and 'enterprise' level members (exclude 'basic')
+   Hint: use array_filter() with a condition that checks if level is NOT 'basic'
+
+2. Sort the filtered members by revenue (highest to lowest)
+   Hint: use usort() with a custom comparison function
+
+3. Get the top 3 highest revenue members from the sorted list
+   Hint: use array_slice()
+
+4. Calculate the total revenue from these top 3 members
+   Hint: use array_column() and array_sum()
+
+5. Display the results:
+   - Echo "Top 3 Premium Members:"
+   - Loop through and display: "Alice (pro) - $297"
+   - Echo total: "Combined revenue: $XXX"
+
+Expected output:
+Top 3 Premium Members:
+Frank (enterprise) - $1197
+Carol (enterprise) - $897
+Eve (pro) - $396
+Combined revenue: $2490
+*/
+
+$members = [
+  ['name' => 'Alice', 'level' => 'pro', 'joined' => '2023-01-15', 'revenue' => 297],
+  ['name' => 'Bob', 'level' => 'basic', 'joined' => '2023-06-20', 'revenue' => 87],
+  ['name' => 'Carol', 'level' => 'enterprise', 'joined' => '2023-02-10', 'revenue' => 897],
+  ['name' => 'Dan', 'level' => 'basic', 'joined' => '2023-08-05', 'revenue' => 58],
+  ['name' => 'Eve', 'level' => 'pro', 'joined' => '2023-03-12', 'revenue' => 396],
+  ['name' => 'Frank', 'level' => 'enterprise', 'joined' => '2023-01-30', 'revenue' => 1197],
+  ['name' => 'Grace', 'level' => 'basic', 'joined' => '2023-09-18', 'revenue' => 29]
+];
+
+#1
+
+$vip_members = array_filter($members, function($e) {
+  return $e['level'] !== 'basic';
+  });
+
+echo "<pre>";
+print_r($vip_members);
+echo "</pre>";
+

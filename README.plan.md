@@ -22,8 +22,8 @@ This phase focuses on fundamental PHP constructs essential for handling data and
 
 - **Objective**: Apply Switch, Loops, and Arrays to practical scenarios.
 - **Tasks**: 
-- Analyze existing WordPress/MemberPress code snippets that use these constructs.
-- Create small PHP scripts to process lists of data (e.g., users, memberships) and apply conditional logic based on their properties.
+    - Analyze existing WordPress/MemberPress code snippets that use these constructs.
+    - Create small PHP scripts to process lists of data (e.g., users, memberships) and apply conditional logic based on their properties.
 
 ## Phase 2: Custom Tools and Web Interaction (Functions, Superglobals, RegEx, Date)
 
@@ -121,7 +121,7 @@ The final phase focuses on how PHP interacts with databases, a critical skill fo
 
 ### To-dos
 
-- [ ] Phase 0: Basic PHP foundation (Syntax, Variables, Types, Simple functions)
+- [x] Phase 0: Basic PHP foundation (Syntax, Variables, Types, Simple functions)
 - [ ] Phase 1: Core Building Blocks (Switch, Loops, Arrays)
 - [ ] Phase 2: Custom Tools and Web Interaction (Functions, Superglobals, RegEx, Date)
 - [ ] Phase 3: File System and User Sessions (Include, File Handling, Uploads, Cookies, Sessions)
