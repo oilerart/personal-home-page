@@ -2380,7 +2380,7 @@ Eve (pro) - $396
 Combined revenue: $2490
 */
 
-$members = [
+/* $members = [
   ['name' => 'Alice', 'level' => 'pro', 'joined' => '2023-01-15', 'revenue' => 297],
   ['name' => 'Bob', 'level' => 'basic', 'joined' => '2023-06-20', 'revenue' => 87],
   ['name' => 'Carol', 'level' => 'enterprise', 'joined' => '2023-02-10', 'revenue' => 897],
@@ -2396,9 +2396,9 @@ $vip_members = array_filter($members, function($e) {
   return $e['level'] !== 'basic';
   });
 
-/* echo "<pre>";
+echo "<pre>";
 print_r($vip_members);
-echo "</pre>"; */
+echo "</pre>";
 
 #2.0
 #2.1
@@ -2408,7 +2408,7 @@ function revenue_parameter($a, $b) {
 
 usort($vip_members, "revenue_parameter");
 
-/*
+
 #2.2
 or you could also do
 
@@ -2419,15 +2419,15 @@ usort($vip_members, function ($a, $b) {
 
 echo "<pre>";
 print_r($vip_members);
-echo "</pre>"; */
+echo "</pre>";
 
 #3
 
 $top_vip_members = array_slice($vip_members, 0, 3);
 
-/* echo "<pre>";
+ echo "<pre>";
 print_r($top_vip_members);
-echo "</pre>"; */
+echo "</pre>";
 
 #4
 
@@ -2446,4 +2446,59 @@ foreach ($top_vip_members as $top_members) {
 
 }
 
-echo "Combined revenue: $" . $revenue_top;
+echo "Combined revenue: $" . $revenue_top; */
+
+# Exercise 18 - membership upgrade eligibility checker
+
+/*
+Check which basic members are eligible for upgrade offers based on their activity.
+
+$basic_members = [
+    ['name' => 'Alice', 'months_active' => 8, 'logins' => 45],
+    ['name' => 'Bob', 'months_active' => 3, 'logins' => 12],
+    ['name' => 'Carol', 'months_active' => 12, 'logins' => 78],
+    ['name' => 'Dan', 'months_active' => 6, 'logins' => 30],
+    ['name' => 'Eve', 'months_active' => 2, 'logins' => 8]
+];
+
+Tasks:
+1. Filter members who are eligible (months_active >= 6 AND logins >= 30)
+2. Count how many are eligible
+3. Get just their names using array_column()
+4. Display: "3 members eligible: Alice, Carol, Dan"
+
+Hint: Use && in your filter condition. Use implode(', ', $names) to join names.
+*/
+
+$basic_members = [
+  ['name' => 'Alice', 'months_active' => 8, 'logins' => 45],
+  ['name' => 'Bob', 'months_active' => 3, 'logins' => 12],
+  ['name' => 'Carol', 'months_active' => 12, 'logins' => 78],
+  ['name' => 'Dan', 'months_active' => 6, 'logins' => 30],
+  ['name' => 'Eve', 'months_active' => 2, 'logins' => 8]
+];
+
+#1
+
+function eligible_members($e) {
+  return ($e['months_active'] >= 6 && $e['logins'] >= 30);
+}
+
+$eligible_members = array_filter($basic_members, 'eligible_members');
+
+echo "<pre>";
+print_r($eligible_members);
+echo "</pre>";
+
+#2
+
+$number_of_eligible_members = count($eligible_members);
+
+#3
+
+$eligible_names = implode(', ', array_column($eligible_members, 'name'));
+
+
+#4
+
+echo "$number_of_eligible_members members eligible: $eligible_names";
