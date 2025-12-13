@@ -2396,7 +2396,27 @@ $vip_members = array_filter($members, function($e) {
   return $e['level'] !== 'basic';
   });
 
+/* echo "<pre>";
+print_r($vip_members);
+echo "</pre>"; */
+
+#2.0
+#2.1
+function revenue_parameter($a, $b) {
+  return $b['revenue'] - $a['revenue'];
+}
+
+usort($vip_members, "revenue_parameter");
+
+/*
+#2.2
+or you could also do
+
+
+usort($vip_members, function ($a, $b) {
+  return $b['revenue'] - $a['revenue'];
+});
+
 echo "<pre>";
 print_r($vip_members);
-echo "</pre>";
-
+echo "</pre>"; */
