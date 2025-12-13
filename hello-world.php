@@ -2420,3 +2420,30 @@ usort($vip_members, function ($a, $b) {
 echo "<pre>";
 print_r($vip_members);
 echo "</pre>"; */
+
+#3
+
+$top_vip_members = array_slice($vip_members, 0, 3);
+
+/* echo "<pre>";
+print_r($top_vip_members);
+echo "</pre>"; */
+
+#4
+
+$revenue_top = array_sum(array_column($top_vip_members, 'revenue'));
+
+// echo $revenue_top;
+
+#5 
+
+echo "<h1>Top 3 Premium Members:</h1><br>";
+
+foreach ($top_vip_members as $top_members) {
+
+  echo "{$top_members['name']} ({$top_members['level']}) - {$top_members['revenue']}";
+  echo "<br>";
+
+}
+
+echo "Combined revenue: $" . $revenue_top;
