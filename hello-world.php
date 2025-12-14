@@ -2470,7 +2470,7 @@ Tasks:
 Hint: Use && in your filter condition. Use implode(', ', $names) to join names.
 */
 
-$basic_members = [
+/* $basic_members = [
   ['name' => 'Alice', 'months_active' => 8, 'logins' => 45],
   ['name' => 'Bob', 'months_active' => 3, 'logins' => 12],
   ['name' => 'Carol', 'months_active' => 12, 'logins' => 78],
@@ -2501,4 +2501,140 @@ $eligible_names = implode(', ', array_column($eligible_members, 'name'));
 
 #4
 
-echo "$number_of_eligible_members members eligible: $eligible_names";
+echo "$number_of_eligible_members members eligible: $eligible_names"; */
+
+# Exercise 19 - complete membership analytics dashboard
+
+/*
+Build a comprehensive report combining ALL the concepts you've learned.
+
+$all_members = [
+    ['name' => 'Alice', 'level' => 'pro', 'status' => 'active', 'revenue' => 297, 'joined' => 2023],
+    ['name' => 'Bob', 'level' => 'basic', 'status' => 'expired', 'revenue' => 87, 'joined' => 2022],
+    ['name' => 'Carol', 'level' => 'enterprise', 'status' => 'active', 'revenue' => 897, 'joined' => 2023],
+    ['name' => 'Dan', 'level' => 'basic', 'status' => 'active', 'revenue' => 58, 'joined' => 2024],
+    ['name' => 'Eve', 'level' => 'pro', 'status' => 'cancelled', 'revenue' => 396, 'joined' => 2023],
+    ['name' => 'Frank', 'level' => 'enterprise', 'status' => 'active', 'revenue' => 1197, 'joined' => 2022],
+    ['name' => 'Grace', 'level' => 'basic', 'status' => 'active', 'revenue' => 29, 'joined' => 2024],
+    ['name' => 'Henry', 'level' => 'pro', 'status' => 'active', 'revenue' => 198, 'joined' => 2024]
+];
+
+Tasks:
+1. Filter active members only
+2. Group them by level (basic, pro, enterprise) - use a foreach with switch
+3. For each level, calculate total revenue and member count
+4. Display formatted report with ALL level stats
+5. Show grand total revenue from all active members
+
+Expected output format:
+=== MEMBERSHIP ANALYTICS ===
+
+BASIC Level:
+- Members: 2
+- Revenue: $87
+
+PRO Level:
+- Members: 2  
+- Revenue: $495
+
+ENTERPRISE Level:
+- Members: 2
+- Revenue: $2094
+
+GRAND TOTAL: $2676 from 6 active members
+
+Hint: Create empty arrays for each level, then use switch to push members into 
+the right array. Then loop through each to calculate stats.
+*/
+
+$all_members = [
+  ['name' => 'Alice', 'level' => 'pro', 'status' => 'active', 'revenue' => 297, 'joined' => 2023],
+  ['name' => 'Bob', 'level' => 'basic', 'status' => 'expired', 'revenue' => 87, 'joined' => 2022],
+  ['name' => 'Carol', 'level' => 'enterprise', 'status' => 'active', 'revenue' => 897, 'joined' => 2023],
+  ['name' => 'Dan', 'level' => 'basic', 'status' => 'active', 'revenue' => 58, 'joined' => 2024],
+  ['name' => 'Eve', 'level' => 'pro', 'status' => 'cancelled', 'revenue' => 396, 'joined' => 2023],
+  ['name' => 'Frank', 'level' => 'enterprise', 'status' => 'active', 'revenue' => 1197, 'joined' => 2022],
+  ['name' => 'Grace', 'level' => 'basic', 'status' => 'active', 'revenue' => 29, 'joined' => 2024],
+  ['name' => 'Henry', 'level' => 'pro', 'status' => 'active', 'revenue' => 198, 'joined' => 2024]
+];
+
+#1
+
+function active_members($e) {
+  return $e['status'] === 'active';
+}
+
+$active_members = array_filter($all_members, 'active_members');
+$n_active_members = count($active_members);
+
+#2
+
+$basic_level = [];
+$pro_level = [];
+$enterprise_level = [];
+
+foreach ($active_members as $members) {
+
+  switch ($members['level']) {
+
+    case 'basic':
+      array_push($basic_level, $members);
+    break;
+
+    case 'pro':
+      array_push($pro_level, $members);
+    break;
+
+    case 'enterprise':
+      array_push($enterprise_level, $members);
+    break;
+
+    default:
+     echo "No valid plan found";
+    break;
+
+  }   
+}
+
+
+#3
+
+$n_basic = count($basic_level);
+$n_pro = count($pro_level);
+$n_enterprise = count($enterprise_level);
+
+$r_basic = array_sum(array_column($basic_level, 'revenue'));
+$r_pro = array_sum(array_column($pro_level, 'revenue'));
+$r_enterprise = array_sum(array_column($enterprise_level, 'revenue'));
+
+#4
+
+echo "<pre>";
+
+echo "<h1> === MEMBERSHIP ANALYTICS ===</h1>";
+
+echo "BASIC Level:<br>";
+echo "Members: $n_basic <br>";
+echo "Revenue: $" . $r_basic . "<br>";
+echo "<br>";
+
+echo "PRO Level:<br>";
+echo "Members: $n_pro <br>";
+echo "Revenue: $" . $r_pro . "<br>";
+echo "<br>";
+
+echo "ENTERPRISE Level:<br>";
+echo "Members: $n_enterprise <br>";
+echo "Revenue: $" . $r_enterprise . "<br>";
+echo "<br>";
+
+echo "</pre>";
+
+
+#5
+
+$total_revenue = array_sum(array_column($active_members, 'revenue'));
+
+echo "<pre>";
+echo "GRAND TOTAL: $" . $total_revenue . " from " . $n_active_members . " active members.";
+echo "</pre>";
