@@ -2657,28 +2657,61 @@ switch ($transaction['status']) {
       $badge = '<span class="badge-green">Completed</span>';
       $allow_refund = true;
       break;
+
+  // adds a green badge to the status info (assuming we have this CSS class set at some place), and set a 'refund possibility flag' as true
       
   case 'pending':
       $badge = '<span class="badge-yellow">Pending Payment</span>';
       $allow_refund = false;
       break;
+
+  // adds a yellow badge to the status info (assuming we have this CSS class set at some place), and set a 'refund possibility flag' as false
+
       
   case 'failed':
       $badge = '<span class="badge-red">Failed</span>';
       $allow_refund = false;
       break;
-      
+
+   // adds a red badge to the status info (assuming we have this CSS class set at some place), and set a 'refund possibility flag' as false
+
+  
   case 'refunded':
       $badge = '<span class="badge-gray">Refunded</span>';
       $allow_refund = false;
       break;
+
+   // adds a gray badge to the status info (assuming we have this CSS class set at some place), and set a 'refund possibility flag' as false
+
       
   default:
       $badge = '<span class="badge-blue">Unknown</span>';
       $allow_refund = false;
       break;
+
+  // adds a blue badge to the status info (assuming we have this CSS class set at some place), and set a 'refund possibility flag' as false
+
 }
 
 echo "<h3>Exercise 20: Switch Analysis</h3>";
 echo "Transaction #{$transaction['id']}: {$badge}<br>";
 echo "Refund allowed: " . ($allow_refund ? 'Yes' : 'No') . "<br>";
+
+
+/*
+
+1 What happens if you remove the break from the 'complete' case?
+2 Why does the code set TWO variables inside each case ($badge and $allow_refund)?
+3 What would happen if $transaction['status'] was 'cancelled'?
+
+
+1 - It falls through and run immediately the next case. The system automatically sets it to Pending and breaks the switch statement properly after that, making the transaction as 'pending payment' and no refund allowed. Interesting
+
+2 - Because it wants to use them afterwars to echo the transaction status and if it is eligible to refund or not
+
+3 - Something like this as output:
+
+Transaction #12345: Unknown
+Refund allowed: No
+
+*/
