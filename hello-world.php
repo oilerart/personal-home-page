@@ -2547,7 +2547,7 @@ Hint: Create empty arrays for each level, then use switch to push members into
 the right array. Then loop through each to calculate stats.
 */
 
-$all_members = [
+/* $all_members = [
   ['name' => 'Alice', 'level' => 'pro', 'status' => 'active', 'revenue' => 297, 'joined' => 2023],
   ['name' => 'Bob', 'level' => 'basic', 'status' => 'expired', 'revenue' => 87, 'joined' => 2022],
   ['name' => 'Carol', 'level' => 'enterprise', 'status' => 'active', 'revenue' => 897, 'joined' => 2023],
@@ -2637,4 +2637,48 @@ $total_revenue = array_sum(array_column($active_members, 'revenue'));
 
 echo "<pre>";
 echo "GRAND TOTAL: $" . $total_revenue . " from " . $n_active_members . " active members.";
-echo "</pre>";
+echo "</pre>"; */
+
+// ============================================
+// Exercise 20: analyze switch pattern (A1)
+// ============================================
+
+// Sample transaction data (array-based, not objects)
+$transaction = [
+  'id' => 12345,
+  'amount' => 99.00,
+  'status' => 'complete',
+  'user' => 'john_doe'
+];
+
+// Pattern: Using switch to route based on status
+switch ($transaction['status']) {
+  case 'complete':
+      $badge = '<span class="badge-green">Completed</span>';
+      $allow_refund = true;
+      break;
+      
+  case 'pending':
+      $badge = '<span class="badge-yellow">Pending Payment</span>';
+      $allow_refund = false;
+      break;
+      
+  case 'failed':
+      $badge = '<span class="badge-red">Failed</span>';
+      $allow_refund = false;
+      break;
+      
+  case 'refunded':
+      $badge = '<span class="badge-gray">Refunded</span>';
+      $allow_refund = false;
+      break;
+      
+  default:
+      $badge = '<span class="badge-blue">Unknown</span>';
+      $allow_refund = false;
+      break;
+}
+
+echo "<h3>Exercise 20: Switch Analysis</h3>";
+echo "Transaction #{$transaction['id']}: {$badge}<br>";
+echo "Refund allowed: " . ($allow_refund ? 'Yes' : 'No') . "<br>";
