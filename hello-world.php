@@ -2644,7 +2644,7 @@ echo "</pre>"; */
 // ============================================
 
 // Sample transaction data (array-based, not objects)
-$transaction = [
+/* $transaction = [
   'id' => 12345,
   'amount' => 99.00,
   'status' => 'complete',
@@ -2698,7 +2698,6 @@ echo "Transaction #{$transaction['id']}: {$badge}<br>";
 echo "Refund allowed: " . ($allow_refund ? 'Yes' : 'No') . "<br>";
 
 
-/*
 
 1 What happens if you remove the break from the 'complete' case?
 2 Why does the code set TWO variables inside each case ($badge and $allow_refund)?
@@ -2715,3 +2714,36 @@ Transaction #12345: Unknown
 Refund allowed: No
 
 */
+
+// ============================================
+// Exercise 21: build your own switch (B1)
+// ============================================
+
+// Member data
+$member = [
+  'id' => 567,
+  'name' => 'Sarah Connor',
+  'level' => 'pro'
+];
+
+// YOUR TASK: Create a switch statement based on $member['level']
+// For each level, set these THREE variables:
+// - $level_name (display name as string)
+// - $access_level (number 1-5)
+// - $color (badge color as string)
+
+// Handle these membership levels:
+// 'free' → 'Free Member', access: 1, color: 'gray'
+// 'basic' → 'Basic Member', access: 2, color: 'blue'
+// 'pro' → 'Pro Member', access: 4, color: 'green'
+// 'enterprise' → 'Enterprise Member', access: 5, color: 'gold'
+// default → 'Unknown Level', access: 0, color: 'red'
+
+// YOUR SWITCH STATEMENT HERE
+
+
+// Display results
+echo "<h3>Exercise 21: Membership Level Display</h3>";
+echo "Member: {$member['name']}<br>";
+echo "Level: <span class='badge-{$color}'>{$level_name}</span><br>";
+echo "Access Level: {$access_level}/5<br>";
