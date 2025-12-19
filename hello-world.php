@@ -2838,7 +2838,7 @@ echo "Successful Payments: {$successful_payments_count}<br>";
 // Exercise 23: build your own foreach (B2.0)
 // ============================================
 
-$users = [
+/* $users = [
   ['name' => 'Alice',   'status' => 'active',   'days_since_login' => 2],
   ['name' => 'Bob',     'status' => 'inactive', 'days_since_login' => 45],
   ['name' => 'Charlie', 'status' => 'active',   'days_since_login' => 1],
@@ -2882,4 +2882,37 @@ foreach ($users as $user) {
 
 echo "<h3>Exercise 23: Inactive Members Report</h3>";
 echo "Total Inactive: $inactive_count<br>";
-echo "List:<br>$inactive_list";
+echo "List:<br>$inactive_list"; */
+
+// ============================================
+// Exercise 24: analyze nested patterns (A3.0)
+// ============================================
+
+$membership_data = [
+  [
+      'user' => 'john_doe',
+      'subscriptions' => [
+          ['id' => 'SUB-1', 'status' => 'active'],
+          ['id' => 'SUB-2', 'status' => 'cancelled']
+      ]
+  ],
+  [
+      'user' => 'jane_smith',
+      'subscriptions' => [
+          ['id' => 'SUB-3', 'status' => 'active']
+      ]
+  ]
+];
+
+echo "<h3>Exercise 24: Nested Data Report</h3>";
+
+foreach ($membership_data as $member) {
+  echo "<strong>Member: " . $member['user'] . "</strong><br>";
+  
+  // Nested loop to process the inner array
+  foreach ($member['subscriptions'] as $sub) {
+      $status_color = ($sub['status'] === 'active') ? 'green' : 'red';
+      echo "- ID: " . $sub['id'] . " (<span style='color:$status_color'>" . $sub['status'] . "</span>)<br>";
+  }
+  echo "<br>";
+}
