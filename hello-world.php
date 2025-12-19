@@ -2723,7 +2723,7 @@ Refund allowed: No
 $member = [
   'id' => 567,
   'name' => 'Sarah Connor',
-  'level' => 'pro'
+  'level' => 'free'
 ];
 
 // YOUR TASK: Create a switch statement based on $member['level']
@@ -2741,8 +2741,52 @@ $member = [
 
 // YOUR SWITCH STATEMENT HERE
 
+switch ($member['level']) {
+
+  case 'free':
+    $level_name = 'Free Member';
+    $access_level = 1;
+    $color = 'gray';
+    break;
+
+  case 'basic':
+    $level_name = 'Basic Member';
+    $access_level = 2;
+    $color = 'blue';
+    break;
+
+  case 'pro':
+    $level_name = 'Pro Member';
+    $access_level = 4;
+    $color = 'green';
+    break;
+
+  case 'enterprise':
+    $level_name = 'Enterprise Member';
+    $access_level = 5;
+    $color = 'gold';
+    break;
+
+  default:
+    $level_name = 'Unknown Level';
+    $access_level = 0;
+    $color = 'red';
+    break;
+
+}
+
 
 // Display results
+echo "
+<style>
+    .badge-green { color: white; background-color: green; padding: 2px 5px; border-radius: 3px; }
+    .badge-yellow { color: black; background-color: #ffcc00; padding: 2px 5px; border-radius: 3px; }
+    .badge-red { color: white; background-color: red; padding: 2px 5px; border-radius: 3px; }
+    .badge-gray { color: white; background-color: #888; padding: 2px 5px; border-radius: 3px; }
+    .badge-blue { color: white; background-color: blue; padding: 2px 5px; border-radius: 3px; }
+    .badge-gold { color: black; background-color: gold; padding: 2px 5px; border-radius: 3px; }
+</style>
+";
 echo "<h3>Exercise 21: Membership Level Display</h3>";
 echo "Member: {$member['name']}<br>";
 echo "Level: <span class='badge-{$color}'>{$level_name}</span><br>";
