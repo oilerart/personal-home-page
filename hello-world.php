@@ -2720,7 +2720,7 @@ Refund allowed: No
 // ============================================
 
 // Member data
-$member = [
+/* $member = [
   'id' => 567,
   'name' => 'Sarah Connor',
   'level' => 'free'
@@ -2790,4 +2790,38 @@ echo "
 echo "<h3>Exercise 21: Membership Level Display</h3>";
 echo "Member: {$member['name']}<br>";
 echo "Level: <span class='badge-{$color}'>{$level_name}</span><br>";
-echo "Access Level: {$access_level}/5<br>";
+echo "Access Level: {$access_level}/5<br>"; */
+
+// ============================================
+// Exercise 22: Analyze Foreach Pattern (A2)
+// ============================================
+
+// Sample list of transactions for a specific member
+$member_transactions = [
+  ['amount' => 50.00, 'type' => 'payment', 'status' => 'complete'],
+  ['amount' => 25.00, 'type' => 'payment', 'status' => 'complete'],
+  ['amount' => 10.00, 'type' => 'refund',  'status' => 'complete'],
+  ['amount' => 50.00, 'type' => 'payment', 'status' => 'pending'],
+  ['amount' => 30.00, 'type' => 'payment', 'status' => 'complete'],
+];
+
+$total_revenue = 0;
+$successful_payments_count = 0;
+
+foreach ($member_transactions as $txn) {
+  // Only process 'complete' transactions
+  if ($txn['status'] === 'complete') {
+      
+      if ($txn['type'] === 'payment') {
+          $total_revenue += $txn['amount'];
+          $successful_payments_count++;
+      } elseif ($txn['type'] === 'refund') {
+          $total_revenue -= $txn['amount'];
+      }
+      
+  }
+}
+
+echo "<h3>Exercise 22: Member Activity Report</h3>";
+echo "Total Revenue: \${$total_revenue}<br>";
+echo "Successful Payments: {$successful_payments_count}<br>";
