@@ -2793,7 +2793,7 @@ echo "Level: <span class='badge-{$color}'>{$level_name}</span><br>";
 echo "Access Level: {$access_level}/5<br>"; */
 
 // ============================================
-// Exercise 22: Analyze Foreach Pattern (A2)
+// Exercise 22: analyze foreach pattern (A2)
 // ============================================
 
 // Sample list of transactions for a specific member
@@ -2803,9 +2803,12 @@ $member_transactions = [
   ['amount' => 10.00, 'type' => 'refund',  'status' => 'complete'],
   ['amount' => 50.00, 'type' => 'payment', 'status' => 'pending'],
   ['amount' => 30.00, 'type' => 'payment', 'status' => 'complete'],
+  #3 Yes, it updates correctly
+  ['amount' => 100.00, 'type' => 'payment', 'status' => 'complete'],
 ];
 
 $total_revenue = 0;
+#2 We need to declare this variable outside the loop otherwise it'll always reset the value of the variable, instead of summing every transaction to the total_revenue
 $successful_payments_count = 0;
 
 foreach ($member_transactions as $txn) {
@@ -2817,6 +2820,7 @@ foreach ($member_transactions as $txn) {
           $successful_payments_count++;
       } elseif ($txn['type'] === 'refund') {
           $total_revenue -= $txn['amount'];
+          #1 For the third item in the array, it encounters this block of code (type = refund). Instead of summing it up, the amount is substracted according to the refunded value
       }
       
   }
@@ -2825,3 +2829,5 @@ foreach ($member_transactions as $txn) {
 echo "<h3>Exercise 22: Member Activity Report</h3>";
 echo "Total Revenue: \${$total_revenue}<br>";
 echo "Successful Payments: {$successful_payments_count}<br>";
+
+#4 The final value would be the last $txn['amount'], basically. ps: I have confirmed this output on the screen
