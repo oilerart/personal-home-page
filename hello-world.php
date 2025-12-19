@@ -2797,7 +2797,7 @@ echo "Access Level: {$access_level}/5<br>"; */
 // ============================================
 
 // Sample list of transactions for a specific member
-$member_transactions = [
+/* $member_transactions = [
   ['amount' => 50.00, 'type' => 'payment', 'status' => 'complete'],
   ['amount' => 25.00, 'type' => 'payment', 'status' => 'complete'],
   ['amount' => 10.00, 'type' => 'refund',  'status' => 'complete'],
@@ -2830,4 +2830,32 @@ echo "<h3>Exercise 22: Member Activity Report</h3>";
 echo "Total Revenue: \${$total_revenue}<br>";
 echo "Successful Payments: {$successful_payments_count}<br>";
 
-#4 The final value would be the last $txn['amount'], basically. ps: I have confirmed this output on the screen
+#4 The final value would be the last $txn['amount'], basically. ps: I have confirmed this output on the screen */
+
+// ============================================
+// Exercise 23: build your own foreach (B2.0)
+// ============================================
+
+$users = [
+  ['name' => 'Alice',   'status' => 'active',   'days_since_login' => 2],
+  ['name' => 'Bob',     'status' => 'inactive', 'days_since_login' => 45],
+  ['name' => 'Charlie', 'status' => 'active',   'days_since_login' => 1],
+  ['name' => 'David',   'status' => 'inactive', 'days_since_login' => 60],
+  ['name' => 'Eve',     'status' => 'active',   'days_since_login' => 5],
+];
+
+// YOUR TASK: 
+// 1. Initialize an empty string variable $inactive_list
+// 2. Initialize a counter variable $inactive_count at 0
+// 3. Loop through $users using foreach
+// 4. If a user's status is 'inactive':
+//    - Add 1 to $inactive_count
+//    - Append the user's name and days since login to $inactive_list
+//      (e.g. "- Bob (45 days ago)<br>")
+
+// YOUR CODE HERE
+
+
+echo "<h3>Exercise 23: Inactive Members Report</h3>";
+echo "Total Inactive: $inactive_count<br>";
+echo "List:<br>$inactive_list";
