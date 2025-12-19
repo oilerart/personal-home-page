@@ -2830,7 +2830,9 @@ echo "<h3>Exercise 22: Member Activity Report</h3>";
 echo "Total Revenue: \${$total_revenue}<br>";
 echo "Successful Payments: {$successful_payments_count}<br>";
 
-#4 The final value would be the last $txn['amount'], basically. ps: I have confirmed this output on the screen */
+#4 The final value would be the last $txn['amount'], basically. ps: I have confirmed this output on the screen
+
+*/
 
 // ============================================
 // Exercise 23: build your own foreach (B2.0)
@@ -2854,6 +2856,28 @@ $users = [
 //      (e.g. "- Bob (45 days ago)<br>")
 
 // YOUR CODE HERE
+
+#1
+
+$inactive_list = '';
+
+#2
+
+$inactive_count = 0;
+
+#3
+
+foreach ($users as $user) {
+  
+  #4
+
+  if ($user['status'] === 'inactive') {
+
+    $inactive_count++;
+    $inactive_list .= $user['name'] . " (" . $user['days_since_login'] . " days ago) <br>";
+  }
+
+}
 
 
 echo "<h3>Exercise 23: Inactive Members Report</h3>";
