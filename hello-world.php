@@ -2956,5 +2956,27 @@ $report_data = [
 
 // YOUR CODE HERE
 
-
 echo "<h3>Exercise 25: Final Subscription Report</h3>";
+
+#1
+ 
+foreach ($report_data as $data) {
+  #2
+  echo $data['member'] . "<br>";
+
+  #3
+  $total_spent = 0;
+  
+  #4
+  foreach ($data['payments'] as $payment) {
+    #5
+    $total_spent += $payment;
+    
+  }
+
+  #6
+  echo "Total Spent: $" . $total_spent . "<br>";
+  echo "<br>";
+
+
+}
