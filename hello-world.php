@@ -2916,3 +2916,12 @@ foreach ($membership_data as $member) {
   }
   echo "<br>";
 }
+
+
+#1 The first foreach is looping through each element of the $membership_data array as a $member. That is, each array of $membership_array is represented by $member. So, $member['user'] and $member['subscriptions']. The second foreach takes $member['subscriptions'], looping through each element of it as $sub. Basically... 
+
+#2 I guess it'll just show its name, like 'Member: fulano' and nothing ahead
+
+#3 As explained in the first question, it is a variable that represents the arrays inside $members[subscriptions]. Not sure what you meant with 'safe', but ig it is probably because this variable wasn't declared before in any places
+
+#4 To separate each member and its info
