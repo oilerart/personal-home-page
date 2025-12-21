@@ -2888,7 +2888,7 @@ echo "List:<br>$inactive_list"; */
 // Exercise 24: analyze nested patterns (A3.0)
 // ============================================
 
-$membership_data = [
+/* $membership_data = [
   [
       'user' => 'john_doe',
       'subscriptions' => [
@@ -2924,4 +2924,37 @@ foreach ($membership_data as $member) {
 
 #3 As explained in the first question, it is a variable that represents the arrays inside $members[subscriptions]. Not sure what you meant with 'safe', but ig it is probably because this variable wasn't declared before in any places
 
-#4 To separate each member and its info
+#4 To separate each member and its info */
+
+// ============================================
+// Exercise 25: build your own nested report (B3.0)
+// ============================================
+
+$report_data = [
+  [
+      'member' => 'Alice',
+      'payments' => [20.00, 50.00, 20.00] // simple list of numbers
+  ],
+  [
+      'member' => 'Bob',
+      'payments' => [100.00, 10.00]
+  ],
+  [
+      'member' => 'Charlie',
+      'payments' => [] // No payments
+  ]
+];
+
+// YOUR TASK:
+// 1. Loop through $report_data
+// 2. Display the member's name
+// 3. Initialize a variable $total_spent = 0 inside the first loop (but before the second)
+// 4. Create a second loop to iterate through the 'payments' array
+// 5. Add each payment to $total_spent
+// 6. After the second loop ends, echo the total for that member
+//    (e.g. "Total Spent: $90")
+
+// YOUR CODE HERE
+
+
+echo "<h3>Exercise 25: Final Subscription Report</h3>";
