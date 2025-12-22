@@ -2930,7 +2930,7 @@ foreach ($membership_data as $member) {
 // Exercise 25: build your own nested report (B3.0)
 // ============================================
 
-$report_data = [
+/* $report_data = [
   [
       'member' => 'Alice',
       'payments' => [20.00, 50.00, 20.00] // simple list of numbers
@@ -2980,3 +2980,62 @@ foreach ($report_data as $data) {
 
 
 }
+
+*/
+
+
+// ============================================
+// SECTION 16: SUPERGLOBALS AND $GLOBALS
+// Exercise 26: global scope basics
+// ============================================
+
+// A global variable defined in the main scope
+$app_name = 'MemberPress App';
+
+// YOUR TASK:
+// 1. Create a function called show_app_name()
+//    - Inside the function, echo the value of $app_name
+//    - Use $GLOBALS to access it
+//
+// 2. Create a function called set_app_version()
+//    - Inside the function, create a global variable called $app_version
+//    - Do this by assigning into $GLOBALS
+//
+// 3. Call both functions below
+//
+// 4. After calling set_app_version(),
+//    - Echo $app_version
+//
+// NOTES:
+// - Do NOT use the `global` keyword
+// - Use $GLOBALS only
+// - No conditionals or loops needed
+
+// YOUR CODE HERE
+
+
+echo "<h3>Exercise 26: Superglobals and \$GLOBALS</h3>";
+
+
+
+#1
+
+function show_app_name() {
+  echo $GLOBALS['app_name'];  
+  echo "<br>";
+}
+
+#2
+
+function set_app_version($version) {
+  $GLOBALS['app_version'] = $version;
+}
+
+#3
+
+show_app_name();
+set_app_version(1.0);
+
+#4
+
+echo number_format($app_version, 1);

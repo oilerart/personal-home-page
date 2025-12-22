@@ -122,7 +122,7 @@ The final phase focuses on how PHP interacts with databases, a critical skill fo
 ### To-dos
 
 - [x] Phase 0: Basic PHP foundation (Syntax, Variables, Types, Simple functions)
-- [ ] Phase 1: Core Building Blocks (Switch, Loops, Arrays)
+- [x] Phase 1: Core Building Blocks (Switch, Loops, Arrays)
 - [ ] Phase 2: Custom Tools and Web Interaction (Functions, Superglobals, RegEx, Date)
 - [ ] Phase 3: File System and User Sessions (Include, File Handling, Uploads, Cookies, Sessions)
 - [ ] Phase 4: Advanced PHP Concepts (Filters, Callbacks, JSON, Exceptions)
