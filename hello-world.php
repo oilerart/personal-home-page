@@ -2990,7 +2990,7 @@ foreach ($report_data as $data) {
 // ============================================
 
 // A global variable defined in the main scope
-$app_name = 'MemberPress App';
+/* $app_name = 'MemberPress App';
 
 // YOUR TASK:
 // 1. Create a function called show_app_name()
@@ -3038,4 +3038,50 @@ set_app_version(1.0);
 
 #4
 
-echo number_format($app_version, 1);
+echo number_format($app_version, 1); */
+
+
+// ============================================
+// Exercise 27: $GLOBALS vs global
+// ============================================
+
+// A global variable defined in the main scope
+$plugin_name = 'MemberPress';
+
+// YOUR TASK:
+// 1. Create a function called show_plugin_name_with_global()
+//    - Inside the function, use: global $plugin_name;
+//    - Echo $plugin_name
+//
+// 2. Create a function called show_plugin_name_with_globals()
+//    - Inside the function, echo $GLOBALS['plugin_name']
+//
+// 3. Call both functions below
+//
+// NOTES:
+// - Do not mix the two approaches inside the same function
+// - This exercise exists only to compare the two mechanisms
+
+// YOUR CODE HERE
+
+
+echo "<h3>Exercise 27: global keyword vs \$GLOBALS</h3>";
+
+
+#1
+
+function show_plugin_name_with_global() {
+  global $plugin_name;
+  echo $plugin_name . "<br>";
+}
+
+#2
+
+function show_plugin_name_with_globals() {
+  echo $GLOBALS['plugin_name'];
+}
+
+#3
+
+show_plugin_name_with_global();
+show_plugin_name_with_globals();
