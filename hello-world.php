@@ -3046,7 +3046,7 @@ echo number_format($app_version, 1); */
 // ============================================
 
 // A global variable defined in the main scope
-$plugin_name = 'MemberPress';
+/* $plugin_name = 'MemberPress';
 
 // YOUR TASK:
 // 1. Create a function called show_plugin_name_with_global()
@@ -3085,3 +3085,41 @@ function show_plugin_name_with_globals() {
 
 show_plugin_name_with_global();
 show_plugin_name_with_globals();
+*/
+
+// ============================================
+// SECTION 17: $_SERVER
+// Exercise 28: $_SERVER - request and script info
+// ============================================
+
+// YOUR TASK:
+// 1. Echo the current request method (GET or POST)
+// 2. Echo the current script name
+// 3. Echo whether the request is using HTTPS or not
+//
+// NOTES:
+// - Use $_SERVER only
+// - This exercise is about observing what the server provides
+
+// YOUR CODE HERE
+
+
+echo "<h3>Exercise 28: \$_SERVER basics</h3>";
+
+#1
+
+echo $_SERVER['REQUEST_METHOD'];
+echo "<br>";
+
+#2
+
+echo $_SERVER['SCRIPT_FILENAME'];
+echo "<br>";
+
+#3
+
+if (isset($_SERVER['HTTPS'])) {
+  echo 'HTTPS exists (but we cannot say it is enabled)';
+} else {
+  echo 'HTTPS key not present';
+}
