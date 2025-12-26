@@ -3104,7 +3104,7 @@ show_plugin_name_with_globals();
 // YOUR CODE HERE
 
 
-echo "<h3>Exercise 28: \$_SERVER basics</h3>";
+/* echo "<h3>Exercise 28: \$_SERVER basics</h3>";
 
 #1
 
@@ -3115,6 +3115,8 @@ echo "<br>";
 
 echo $_SERVER['SCRIPT_FILENAME'];
 echo "<br>";
+//or shorter
+echo " {$_SERVER['PHP_SELF']} <br>";
 
 #3
 
@@ -3122,4 +3124,39 @@ if (isset($_SERVER['HTTPS'])) {
   echo 'HTTPS exists (but we cannot say it is enabled)';
 } else {
   echo 'HTTPS key not present';
+} */  
+
+
+// ============================================
+// SECTION 18: $_REQUEST
+// Exercise 29: $_REQUEST - handling form data
+// ============================================
+
+// Simulate form data (uncomment to test):
+$_REQUEST['member_id'] = '4729';
+$_REQUEST['plan'] = 'Pro';
+
+// YOUR TASK:
+// 1. Check if 'member_id' exists in $_REQUEST
+//    - If yes: echo "Searching for member: [value]"
+//    - If no: echo "No member ID provided"
+//
+// 2. Check if 'plan' exists in $_REQUEST
+//    - If yes: echo "Filtering by plan: [value]"
+//    - If no: echo "No plan filter applied"
+
+// YOUR CODE HERE
+
+echo "<h3>Exercise 29: \$_REQUEST basics</h3>";
+
+if (isset($_REQUEST['member_id'])) {
+  echo "Searching for member: ... {$_REQUEST['member_id']} <br>";
+} else {
+  echo "No member ID provided";
+}
+
+if (isset($_REQUEST['plan'])) {
+  echo "Filtering by plan: {$_REQUEST['plan']}";
+} else {
+  echo "No plan filter applied";
 }
