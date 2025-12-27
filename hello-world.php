@@ -3133,8 +3133,8 @@ if (isset($_SERVER['HTTPS'])) {
 // ============================================
 
 // Simulate form data (uncomment to test):
-$_REQUEST['member_id'] = '4729';
-$_REQUEST['plan'] = 'Pro';
+// $_REQUEST['member_id'] = '4729';
+// $_REQUEST['plan'] = 'Pro';
 
 // YOUR TASK:
 // 1. Check if 'member_id' exists in $_REQUEST
@@ -3147,16 +3147,71 @@ $_REQUEST['plan'] = 'Pro';
 
 // YOUR CODE HERE
 
-echo "<h3>Exercise 29: \$_REQUEST basics</h3>";
+/* echo "<h3>Exercise 29: \$_REQUEST basics</h3>";
 
 if (isset($_REQUEST['member_id'])) {
   echo "Searching for member: ... {$_REQUEST['member_id']} <br>";
 } else {
-  echo "No member ID provided";
+  echo "No member ID provided <br>";
 }
 
 if (isset($_REQUEST['plan'])) {
   echo "Filtering by plan: {$_REQUEST['plan']}";
 } else {
   echo "No plan filter applied";
+} */
+
+// ============================================
+// SECTION 18: $_REQUEST
+// Exercise 30: member search tool with real inputs
+// ============================================
+
+// SCENARIO:
+// You're building a simple member search form for the MemberPress dashboard.
+// The form will submit data and you'll use $_REQUEST to handle it.
+
+// YOUR TASK:
+// 1. Create an HTML form with method="GET" and action="" (submits to itself)
+// 2. Add a text input for "member_id" with a label
+// 3. Add a text input for "email" with a label
+// 4. Add a submit button
+// 5. Below the form, use PHP to check if the form was submitted
+//    - If 'member_id' exists in $_REQUEST, echo "Searching for member ID: [value]"
+//    - If 'email' exists in $_REQUEST, echo "Email: [value]"
+//    - If neither exists, echo "Fill out the form above to search"
+//
+// NOTES:
+// - Use $_REQUEST (works with both GET and POST)
+// - The form will reload the page when submitted
+// - You'll see the values in the URL: ?member_id=123&email=test@test.com
+
+?>
+
+<!-- 1 - HTML FORM HERE -->
+
+<form method="get" action="">
+  <!-- 2, 3 and 4-->
+   <input id="member_id" type="text" name="member_id">
+   <label for ="member_id">Member ID</label></br></br>
+   <input id="email" type="text" name="email">
+   <label for ="email">Email</label></br></br>
+   <input type="submit">
+</form>
+<?php
+// YOUR PHP LOGIC HERE TO DISPLAY RESULTS
+
+echo "<h3>Exercise 30: member search tool</h3>";
+
+#5
+
+if (isset($_REQUEST['member_id'])) {
+  echo "Searching for member ID: {$_REQUEST['member_id']} <br>";
+}
+
+if (isset($_REQUEST['email'])) {
+  echo "Email: {$_REQUEST['email']} <br><br>";
+}
+
+if (empty($_REQUEST['member_id']) && empty($_REQUEST['email'])) {
+  echo "<strong><span style='color:red'>Fill out the form above to search</span></strong>";
 }
